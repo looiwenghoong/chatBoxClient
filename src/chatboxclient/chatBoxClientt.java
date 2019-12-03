@@ -8,6 +8,7 @@ package chatboxclient;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.io.DataOutputStream;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,6 +24,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
     static ChatBoxClient client;
     public Boolean isLoggedIn = false;
     public String LoginUsername = null;
+    public static String messageFromClient = "";
 
     /**
      * Creates new form chatBoxClientt
@@ -50,7 +52,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        submitMessageTextField = new javax.swing.JTextField();
         submitTextButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -119,7 +121,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(100, 65, 165));
 
-        jTextField1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        submitMessageTextField.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
 
         submitTextButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         submitTextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/materialdesignicon/send-white-18dp/2x/baseline_send_white_18dp.png"))); // NOI18N
@@ -135,7 +137,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addComponent(submitMessageTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(submitTextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -143,7 +145,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addComponent(submitMessageTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(submitTextButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -206,7 +208,8 @@ public class chatBoxClientt extends javax.swing.JFrame {
         if(LoginUsername == null) {
             popUpLogin();
         } else {
-            
+            messageFromClient = submitMessageTextField.getText(); 
+            client.writeMessage(messageFromClient);
         }
     }//GEN-LAST:event_submitTextButtonMousePressed
 
@@ -256,6 +259,23 @@ public class chatBoxClientt extends javax.swing.JFrame {
             }
         });
         client = new ChatBoxClient("127.0.0.1", 9000);
+        
+        Thread readMessage = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                client.readMessage();
+            }
+        });
+        
+//        Thread writeMessage = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                client.writeMessage();
+//            }
+//        });
+        
+        readMessage.start();
+//        writeMessage.start();
     }
     
     private void popUpLogin() {
@@ -285,8 +305,9 @@ public class chatBoxClientt extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel sideMenuLoginButton;
+    private javax.swing.JTextField submitMessageTextField;
     private javax.swing.JLabel submitTextButton;
     // End of variables declaration//GEN-END:variables
 }
+
