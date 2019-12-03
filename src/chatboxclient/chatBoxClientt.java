@@ -22,6 +22,8 @@ public class chatBoxClientt extends javax.swing.JFrame {
 
     static ChatBoxClient client;
     public Boolean isLoggedIn = false;
+    public String LoginUsername = null;
+
     /**
      * Creates new form chatBoxClientt
      */
@@ -42,8 +44,8 @@ public class chatBoxClientt extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        sideMenuLoginButton = new javax.swing.JLabel();
+        closeButton = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -62,15 +64,25 @@ public class chatBoxClientt extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(51, 0, 102));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/account_circle-white-18dp/2x/round_account_circle_white_18dp.png"))); // NOI18N
-        jLabel3.setText("Login");
+        sideMenuLoginButton.setForeground(new java.awt.Color(255, 255, 255));
+        sideMenuLoginButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sideMenuLoginButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/account_circle-white-18dp/2x/round_account_circle_white_18dp.png"))); // NOI18N
+        sideMenuLoginButton.setText("Login");
+        sideMenuLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                sideMenuLoginButtonMousePressed(evt);
+            }
+        });
 
-        jLabel5.setForeground(new java.awt.Color(255, 102, 102));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit_to_app-white-18dp/2x/round_exit_to_app_white_18dp.png"))); // NOI18N
-        jLabel5.setText("Close");
+        closeButton.setForeground(new java.awt.Color(255, 102, 102));
+        closeButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        closeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit_to_app-white-18dp/2x/round_exit_to_app_white_18dp.png"))); // NOI18N
+        closeButton.setText("Close");
+        closeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                closeButtonMousePressed(evt);
+            }
+        });
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -85,8 +97,8 @@ public class chatBoxClientt extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sideMenuLoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(closeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -95,9 +107,9 @@ public class chatBoxClientt extends javax.swing.JFrame {
                 .addContainerGap(114, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sideMenuLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(304, 304, 304))
         );
 
@@ -191,8 +203,24 @@ public class chatBoxClientt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitTextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitTextButtonMousePressed
-        popUpLogin();
+        if(LoginUsername == null) {
+            popUpLogin();
+        } else {
+            
+        }
     }//GEN-LAST:event_submitTextButtonMousePressed
+
+    private void sideMenuLoginButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sideMenuLoginButtonMousePressed
+        if (LoginUsername == null) {
+            popUpLogin();
+        } else {
+            JOptionPane.showMessageDialog(null, "Logged in as " + LoginUsername);
+        }
+    }//GEN-LAST:event_sideMenuLoginButtonMousePressed
+
+    private void closeButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonMousePressed
+        System.exit(0);
+    }//GEN-LAST:event_closeButtonMousePressed
 
     /**
      * @param args the command line arguments
@@ -223,34 +251,33 @@ public class chatBoxClientt extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public void run() {                   
                 new chatBoxClientt().setVisible(true);
             }
         });
         client = new ChatBoxClient("127.0.0.1", 9000);
     }
     
-    private static void popUpLogin() {
-        JTextField field1 = new JTextField("");
+    private void popUpLogin() {
+        JTextField usernameField = new JTextField("");
         JPanel panel = new JPanel(new GridLayout(0, 1));
         JLabel LoginTextLabel = new JLabel("Enter Username to Start Chatting");
         LoginTextLabel.setFont(new Font("Verdana", Font.PLAIN, 15));
         panel.add(LoginTextLabel);
-        panel.add(field1);
+        panel.add(usernameField);
         panel.setPreferredSize(new Dimension(260, 80));
         int result = JOptionPane.showConfirmDialog(null, panel, "Login",
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            System.out.println(field1.getText());
+            LoginUsername = usernameField.getText();
         } else {
             System.out.println("Cancelled");
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel closeButton;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -259,6 +286,7 @@ public class chatBoxClientt extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel sideMenuLoginButton;
     private javax.swing.JLabel submitTextButton;
     // End of variables declaration//GEN-END:variables
 }
