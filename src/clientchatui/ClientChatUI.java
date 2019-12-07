@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 /**
  *
  * @author ZhengKhai
+ * @author LooiWengHoong
  */
 public class ClientChatUI extends Application {
 
