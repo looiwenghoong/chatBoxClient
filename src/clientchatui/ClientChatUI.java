@@ -16,7 +16,9 @@ import javafx.stage.Stage;
  * @author ZhengKhai
  */
 public class ClientChatUI extends Application {
-    
+
+    private FXMLDocumentController controller;
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -25,6 +27,9 @@ public class ClientChatUI extends Application {
         stage.setTitle("Client Chat Box");
         stage.setScene(scene);
         stage.show();
+
+        controller = new FXMLDocumentController();
+        controller.createLoginDialog();
     }
 
     /**
