@@ -5,22 +5,33 @@
  */
 package clientchatui;
 
-import java.awt.Insets;
 import java.awt.Window;
+import java.io.FileInputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import javafx.scene.text.Text;
 
 /**
  *
@@ -39,6 +50,9 @@ public class FXMLDocumentController implements Initializable {
     private Button send;
     @FXML
     private TextField insertMsgTextField;
+
+    @FXML
+    private ScrollPane usernameList;
 
     public String loginUsername = null;
 
@@ -83,6 +97,67 @@ public class FXMLDocumentController implements Initializable {
             } else {
             }
         });
+    }
+
+    public void generateUsernameList() {
+
+        String[] usernameList = {"A", "B", "C", "Looi Weng hoong"};
+        List<HBox> usernameCellList = new ArrayList<HBox>();
+
+        for (int i = 0; i < usernameList.length; i++) {
+            Image userIcon = null;
+            try{
+                userIcon = new Image("image/userIcon.png", true);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+            ImageView userIconView = new ImageView(userIcon);
+            userIconView.setFitHeight(50);
+            userIconView.setFitWidth(50);
+            userIconView.setPreserveRatio(true);
+
+            Label username = new Label();
+            username.setText(usernameList[i]);
+            username.setPrefWidth(227);
+            username.setPrefHeight(50);
+            username.setFont(new Font("Arial", 15));
+            username.setWrapText(true);
+
+            HBox usernameCell = new HBox(userIconView, username);
+            usernameCell.setSpacing(20);
+            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+            usernameCell.setMargin(userIconView, new Insets(10, 0, 4, 20));
+            usernameCell.setMargin(username, new Insets(10, 0, 4, 0));
+            usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(211,211,211), CornerRadii.EMPTY, Insets.EMPTY)));
+                }
+            });
+            usernameCell.setOnMouseReleased(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+                    System.out.println("Username Clicked");
+                }
+            });
+
+            // Add Hbox to the Hbox List
+            usernameCellList.add(usernameCell);
+        }
+
+        updateUsernameList(usernameCellList);
+    }
+
+    public void updateUsernameList(List<HBox> usernameCellList) {
+        VBox root = new VBox();
+
+        for (int i = 0; i<usernameCellList.size(); i++) {
+            root.getChildren().add(usernameCellList.get(i));
+        }
+        usernameList.setContent(root);
+        usernameList.setPannable(true);
     }
         
     @FXML

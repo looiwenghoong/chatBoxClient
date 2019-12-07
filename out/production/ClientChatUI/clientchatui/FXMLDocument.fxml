@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -72,24 +72,7 @@
                         <Image url="@../image/onlineuserpurple.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="92.0" layoutX="65.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/baseline_face_white_18dp.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="92.0" layoutX="65.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/baseline_face_white_18dp.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="92.0" layoutX="65.0" layoutY="306.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/baseline_face_white_18dp.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="164.0" layoutY="244.0" text="Typing . . ." />
-                  <Label layoutX="164.0" layoutY="323.0" text="Typing . . ." />
-                  <Label layoutX="164.0" layoutY="411.0" text="Typing . . ." />
+                  <ScrollPane fx:id="usernameList" layoutX="50.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="320.0" />
                   <TextArea layoutX="423.0" layoutY="48.0" onScrollFinished="#loginButton" prefHeight="334.0" prefWidth="445.0" />
                   <TextField id="insertMsgTextField" fx:id="insertMsgTextField" layoutX="423.0" layoutY="418.0" onAction="#sendButton" prefHeight="54.0" prefWidth="330.0" promptText="Type Here ..." />
                   <Button fx:id="send" layoutX="765.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="50.0" prefWidth="104.0" style="-fx-background-color: #6441A5;">
