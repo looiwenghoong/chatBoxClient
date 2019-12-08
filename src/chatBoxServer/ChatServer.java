@@ -20,7 +20,6 @@ public class ChatServer {
     private ArrayList<Connection> list;
     private Socket s;
     private Connection c = null;
-    private Set<Connection> userThreads = new HashSet<>();
 
 
     public static void main(String args[]) {
@@ -61,25 +60,7 @@ public class ChatServer {
     }
 
 
-    public ArrayList<String> getUserList() {
-        ArrayList<String> userList = new ArrayList<String>();
-        for( Connection clientThread: list){
-            if(clientThread.getState() == Connection.STATE_REGISTERED) {
-                userList.add(clientThread.getUserName());
-            }
-        }
-        return userList;
-    }
 
-    public boolean doesUserExist(String newUser) {
-        boolean result = false;
-        for( Connection clientThread: list){
-            if(clientThread.getState() == Connection.STATE_REGISTERED) {
-                result = clientThread.getUserName().compareTo(newUser)==0;
-            }
-        }
-        return result;
-    }
 
     public void broadcastMessage(String theMessage){
         for( Connection clientThread: list){
@@ -88,36 +69,20 @@ public class ChatServer {
     }
 
 
-    public boolean sendPrivateMessage(String message, String user) {
-        for( Connection clientThread: list) {
-            if(clientThread.getState() == Connection.STATE_REGISTERED) {
-                if(clientThread.getUserName().compareTo(user)==0) {
-                    clientThread.messageForConnection(message + System.lineSeparator());
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void removeDeadUsers(){
-        Iterator<Connection> it = list.iterator();
-        while (it.hasNext()) {
-            Connection c = it.next();
-            if(!c.isRunning())
-                it.remove();
-        }
-    }
-
     public int getNumberOfUsers() {
         return list.size();
     }
 
-    protected void finalize() throws IOException{
-        server.close();
+
+    public Connection getConnectionID() {
+        return c;
     }
 
-    public String getConnectionID() {
-        return c.toString();
+    public ArrayList<Connection> getConnectionList() {
+        return list;
+    }
+
+    public void removeConnection(Connection connectionID) {
+        list.remove(connectionID);
     }
 }

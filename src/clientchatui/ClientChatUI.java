@@ -7,10 +7,12 @@ package clientchatui;
 
 import com.sun.tools.javac.Main;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
 /**
@@ -33,11 +35,14 @@ public class ClientChatUI extends Application {
         stage.setTitle("Client Chat Box");
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                System.exit(-1);
+            }
+        });
 
         FXMLDocumentController controller = loader.getController();
-
-//        controller.updateUsernameList();
-//        controller.generateUsernameList();
         controller.createLoginDialog();
         loginUsername = controller.getUsername();
         if(loginUsername != null) {
