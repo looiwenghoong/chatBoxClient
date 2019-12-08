@@ -11,6 +11,8 @@ public class Connection implements Runnable {
     private volatile boolean running;
     private String username;
     private static String usernameList = "USERNAMElist:";
+    private static String connectionList = "CONNECTIONlist:";
+    String concatPattern = "%CoNcAt%";
     private int messageCount;
     private int state;
     private Socket client;
@@ -50,6 +52,10 @@ public class Connection implements Runnable {
                 System.out.println(mentry.getValue());
             }
 
+            for(int i = 0; i<serverReference.getConnectionList().size(); i++){
+                System.out.println(serverReference.getConnectionList().get(i));
+            }
+
             do {
                 String clientMessage = dis.readUTF();
                 System.out.println(clientMessage);
@@ -72,7 +78,6 @@ public class Connection implements Runnable {
 
     public void getClientUsername() {
         ArrayList<String> clientName;
-        String concatPattern = "%CoNcAt%";
         try {
             ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
             try {
@@ -82,9 +87,11 @@ public class Connection implements Runnable {
                 System.out.println("I got the " + username);
 
                 usernameList = usernameList + concatPattern + username;
+                connectionList = connectionList + concatPattern + this.toString();
                 // Add the every connected client username to the username list
                 // Use to broadcast back to other clients
                 serverReference.broadcastMessage(usernameList);
+                serverReference.broadcastMessage(connectionList);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -96,24 +103,40 @@ public class Connection implements Runnable {
 
     public void removeConnection() {
         Connection connectionID = this;
+        String usernameToRemove = concatPattern + username;
+        String connectionToRemove = concatPattern + connectionID.toString();
 
         System.out.println(connectionID + " or " + username + " quit");
+        usernameList = usernameList.replaceAll("("+usernameToRemove+")", "");
+        connectionList = connectionList.replaceAll("("+connectionToRemove+")", "");
+
         userHashMap.remove(connectionID);
+        serverReference.removeConnection(connectionID);
+
+//        for(int i = 0; i<serverReference.getConnectionList().size(); i++){
+//            System.out.println(serverReference.getConnectionList().get(i));
+//        }
         if(userHashMap.size() == 0){
             System.exit(-1);
         } else {
-            Set set = userHashMap.entrySet();
-            Iterator iterator = set.iterator();
-            while(iterator.hasNext()) {
-                Map.Entry mentry = (Map.Entry)iterator.next();
-                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
-                System.out.println(mentry.getValue());
-            }
+            System.out.println(usernameList);
+            serverReference.broadcastMessage(usernameList);
+            serverReference.broadcastMessage(connectionList);
+
+//            Set set = userHashMap.entrySet();
+//            Iterator iterator = set.iterator();
+//            while(iterator.hasNext()) {
+//                Map.Entry mentry = (Map.Entry)iterator.next();
+//                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
+//                System.out.println(mentry.getValue());
+//            }
         }
     }
 
     public void broadcastConnectionIDToClient() {
-        printOutWriter.println(serverReference.getConnectionID().toString());
+        String header = "CONNECTIONid:";
+        header = header + serverReference.getConnectionID().toString();
+        printOutWriter.println(header);
     }
 
 

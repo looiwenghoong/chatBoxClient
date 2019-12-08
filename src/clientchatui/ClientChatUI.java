@@ -7,6 +7,7 @@ package clientchatui;
 
 import com.sun.tools.javac.Main;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,13 +23,15 @@ import javafx.stage.WindowEvent;
  */
 public class ClientChatUI extends Application {
 
-//    private FXMLDocumentController controller;
     public ChatClient client;
     public String loginUsername;
+    public FXMLLoader loader;
+    public FXMLDocumentController controller;
+    public String a = "";
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
@@ -42,11 +45,12 @@ public class ClientChatUI extends Application {
             }
         });
 
-        FXMLDocumentController controller = loader.getController();
+        controller = loader.getController();
         controller.createLoginDialog();
+
         loginUsername = controller.getUsername();
         if(loginUsername != null) {
-            client = new ChatClient("127.0.0.1", 9000, loginUsername);
+            client = new ChatClient("127.0.0.1", 9000, loginUsername, this);
         }
     }
 
@@ -56,5 +60,4 @@ public class ClientChatUI extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

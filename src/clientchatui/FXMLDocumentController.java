@@ -59,7 +59,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void homeButton(ActionEvent event) {
@@ -104,65 +104,79 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
-    public void generateUsernameList() {
+    public void generateUsernameList(List<String> usernameList, int selfIndex) {
+        Platform.runLater(() -> {
+            List<HBox> usernameCellList = new ArrayList<HBox>();
+            String usernameString;
+            for (int i = 1; i < usernameList.size(); i++) {
+                if(i == selfIndex) {
+                    usernameString = "You";
+                } else {
+                    usernameString = usernameList.get(i);
+                }
+                Image userIcon = null;
+                try{
+                    userIcon = new Image("image/userIcon.png", true);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
 
-        String[] usernameList = {"A", "B", "C", "Looi Weng hoong"};
-        List<HBox> usernameCellList = new ArrayList<HBox>();
+                ImageView userIconView = new ImageView(userIcon);
+                userIconView.setFitHeight(50);
+                userIconView.setFitWidth(50);
+                userIconView.setPreserveRatio(true);
 
-        for (int i = 0; i < usernameList.length; i++) {
-            Image userIcon = null;
-            try{
-                userIcon = new Image("image/userIcon.png", true);
-            } catch (Exception e) {
-                System.out.println(e);
+                Label username = new Label();
+                username.setText(usernameString);
+                username.setPrefWidth(227);
+                username.setPrefHeight(50);
+                username.setFont(new Font("Arial", 15));
+                username.setWrapText(true);
+
+                HBox usernameCell = new HBox(userIconView, username);
+                usernameCell.setSpacing(20);
+                usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+                usernameCell.setMargin(userIconView, new Insets(10, 0, 4, 20));
+                usernameCell.setMargin(username, new Insets(10, 0, 4, 0));
+
+                if(i != selfIndex) {
+                    usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent mouseEvent) {
+                            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(211,211,211), CornerRadii.EMPTY, Insets.EMPTY)));
+                        }
+                    });
+
+                    usernameCell.setOnMouseReleased(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent mouseEvent) {
+                            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+                            System.out.println("Username Clicked");
+                        }
+                    });
+
+                } else {
+                    usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 102), CornerRadii.EMPTY, Insets.EMPTY)));
+                }
+
+                // Add Hbox to the Hbox List
+                usernameCellList.add(usernameCell);
             }
 
-            ImageView userIconView = new ImageView(userIcon);
-            userIconView.setFitHeight(50);
-            userIconView.setFitWidth(50);
-            userIconView.setPreserveRatio(true);
-
-            Label username = new Label();
-            username.setText(usernameList[i]);
-            username.setPrefWidth(227);
-            username.setPrefHeight(50);
-            username.setFont(new Font("Arial", 15));
-            username.setWrapText(true);
-
-            HBox usernameCell = new HBox(userIconView, username);
-            usernameCell.setSpacing(20);
-            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
-            usernameCell.setMargin(userIconView, new Insets(10, 0, 4, 20));
-            usernameCell.setMargin(username, new Insets(10, 0, 4, 0));
-            usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(211,211,211), CornerRadii.EMPTY, Insets.EMPTY)));
-                }
-            });
-            usernameCell.setOnMouseReleased(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent mouseEvent) {
-                    usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
-                    System.out.println("Username Clicked");
-                }
-            });
-
-            // Add Hbox to the Hbox List
-            usernameCellList.add(usernameCell);
-        }
-
-        updateUsernameList(usernameCellList);
+            updateUsernameList(usernameCellList);
+        });
     }
 
     public void updateUsernameList(List<HBox> usernameCellList) {
-        VBox root = new VBox();
+        Platform.runLater(() -> {
+            VBox root = new VBox();
 
-        for (int i = 0; i<usernameCellList.size(); i++) {
-            root.getChildren().add(usernameCellList.get(i));
-        }
-        usernameList.setContent(root);
-        usernameList.setPannable(true);
+            for (int i = 0; i<usernameCellList.size(); i++) {
+                root.getChildren().add(usernameCellList.get(i));
+            }
+            usernameList.setContent(root);
+            usernameList.setPannable(true);
+        });
     }
         
     @FXML

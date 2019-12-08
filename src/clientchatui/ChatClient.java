@@ -21,7 +21,7 @@ public class ChatClient {
     public ReadThread readThread;
     private ChatServer server = null;
 
-    public ChatClient (String address, int port, String loginUsername) {
+    public ChatClient (String address, int port, String loginUsername, ClientChatUI application) {
         try {
             socket = new Socket(address, port);
             System.out.println("Connected to server at port " + port);
@@ -29,7 +29,7 @@ public class ChatClient {
             writeUsernameToServer(loginUsername);
 
             // Thread to listen to incoming messages
-            readThread = new ReadThread(socket, this);
+            readThread = new ReadThread(socket, this, application);
             Thread t = new Thread(readThread);
             t.start();
         } catch (UnknownHostException u) {
