@@ -104,7 +104,7 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
-    public void generateUsernameList(List<String> usernameList, int selfIndex) {
+    public void generateUsernameList(List<String> usernameList, int selfIndex, int numberOfUsers) {
         Platform.runLater(() -> {
             List<HBox> usernameCellList = new ArrayList<HBox>();
             String usernameString;
@@ -139,22 +139,25 @@ public class FXMLDocumentController implements Initializable {
                 usernameCell.setMargin(userIconView, new Insets(10, 0, 4, 20));
                 usernameCell.setMargin(username, new Insets(10, 0, 4, 0));
 
+
                 if(i != selfIndex) {
-                    usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent mouseEvent) {
-                            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(211,211,211), CornerRadii.EMPTY, Insets.EMPTY)));
-                        }
-                    });
+                    System.out.println(numberOfUsers);
+                    if(numberOfUsers > 1){
+                        usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent mouseEvent) {
+                                usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(211,211,211), CornerRadii.EMPTY, Insets.EMPTY)));
+                            }
+                        });
 
-                    usernameCell.setOnMouseReleased(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent mouseEvent) {
-                            usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
-                            System.out.println("Username Clicked");
-                        }
-                    });
-
+                        usernameCell.setOnMouseReleased(new EventHandler<MouseEvent>() {
+                            @Override
+                            public void handle(MouseEvent mouseEvent) {
+                                usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+                                System.out.println("Username Clicked");
+                            }
+                        });
+                    }
                 } else {
                     usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 102), CornerRadii.EMPTY, Insets.EMPTY)));
                 }

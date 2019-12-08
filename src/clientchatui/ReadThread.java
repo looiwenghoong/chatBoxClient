@@ -22,6 +22,7 @@ public class ReadThread implements Runnable {
     private ClientChatUI application;
     private String connectionID;
     private int selfIndex;
+    private int numberOfUsers = 0;
 
 
     public ReadThread(Socket socket, ChatClient client, ClientChatUI application) {
@@ -55,13 +56,15 @@ public class ReadThread implements Runnable {
                     }
 
                     if(nameOutput.size() == connectionOutput.size()) {
+                        numberOfUsers = connectionOutput.size() - 2;
                         for (int i = 1; i < connectionOutput.size(); i++) {
                             if(connectionID.matches(connectionOutput.get(i))) {
                                 selfIndex = i;
                                 break;
                             }
                         }
-                        application.controller.generateUsernameList(nameOutput, selfIndex);
+
+                        application.controller.generateUsernameList(nameOutput, selfIndex, numberOfUsers);
                         updateHashMap();
                     }
                 } else {

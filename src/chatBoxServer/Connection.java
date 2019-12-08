@@ -10,8 +10,8 @@ public class Connection implements Runnable {
 
     private volatile boolean running;
     private String username;
-    private static String usernameList = "USERNAMElist:";
-    private static String connectionList = "CONNECTIONlist:";
+    private static String usernameList = "USERNAMElist:%CoNcAt%Group Chat";
+    private static String connectionList = "CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0";
     String concatPattern = "%CoNcAt%";
     private int messageCount;
     private int state;

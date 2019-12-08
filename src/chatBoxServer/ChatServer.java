@@ -31,9 +31,6 @@ public class ChatServer {
         try {
             server = new ServerSocket(port);
             System.out.println("Server has been initialised on port " + port);
-//            String a = "USERNAMElist:%CoNcAt%asdsa%CoNcAt%Looi";
-//            a = a.replaceAll("(%CoNcAt%asdsa)", "");
-//            System.out.println(a);
         }
         catch (IOException e) {
             System.err.println("error initialising server");
