@@ -73,7 +73,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loginButton(ActionEvent event) {
-        createLoginDialog();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Login Information");
+        alert.setHeaderText("Logged in as:    " + loginUsername);
+        alert.setContentText("Welcome to the chat server!!\nEnjoy your stay and start having great chats!");
+
+        alert.showAndWait();
     }
 
     @FXML
@@ -216,5 +221,10 @@ public class FXMLDocumentController implements Initializable {
         } else {
             createLoginDialog();
         }
+    }
+
+
+    public String getUsername() {
+        return loginUsername;
     }
 }

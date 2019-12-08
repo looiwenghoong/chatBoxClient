@@ -1,11 +1,7 @@
 package chatBoxServer;
 
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
+import java.lang.reflect.Array;
 import java.net.Socket;
 import java.util.ArrayList;
 
@@ -15,12 +11,15 @@ public class Connection implements Runnable {
     final static int STATE_REGISTERED = 1;
 
     private volatile boolean running;
+//    private static ArrayList<String> usernameList = new ArrayList<String>();
+    private static String usernameList = "USERNAMElist:";
     private int messageCount;
     private int state;
     private Socket client;
     private ChatServer serverReference;
     private BufferedReader readerIn;
     private PrintWriter printOutWriter;
+    private ObjectOutputStream oos;
     private String username;
     private DataInputStream dis;
     private DataOutputStream dos;
@@ -44,6 +43,7 @@ public class Connection implements Runnable {
 
             getNumberOfUsers();
             broadcastConnectionIDToClient();
+            getClientUsername();
 
             do {
                 String clientMessage = dis.readUTF();
@@ -60,13 +60,39 @@ public class Connection implements Runnable {
         if(serverReference.getNumberOfUsers() == 0) {
             printOutWriter.println("No other users connected");
         } else {
-            printOutWriter.println("Currently " + serverReference.getNumberOfUsers() + " users online.");
+            String msg = "Currently " + serverReference.getNumberOfUsers() + " users online.";
+            serverReference.broadcastMessage(msg);
         }
     }
+
+    public void getClientUsername() {
+        ArrayList<String> clientName;
+        String concatPattern = "%CoNcAt%";
+        try {
+            ObjectInputStream ois = new ObjectInputStream(client.getInputStream());
+            try {
+                Object obj = ois.readObject();
+                clientName = (ArrayList<String>) obj;
+                System.out.println("I got the " + clientName.get(0));
+
+                usernameList = usernameList + concatPattern + clientName.get(0);
+                // Add the every connected client username to the username list
+                // Use to broadcast back to other clients
+                serverReference.broadcastMessage(usernameList);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
 
     public void broadcastConnectionIDToClient() {
         printOutWriter.println(serverReference.getConnectionID());
     }
+
 
     private void validateMessage(String message) {
 

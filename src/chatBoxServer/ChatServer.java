@@ -20,7 +20,6 @@ public class ChatServer {
     private ArrayList<Connection> list;
     private Socket s;
     private Connection c = null;
-    private Set<String> userNames = new HashSet<>();
     private Set<Connection> userThreads = new HashSet<>();
 
 

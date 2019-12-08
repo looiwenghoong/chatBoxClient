@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 /**
  *
  * @author ZhengKhai
@@ -20,6 +21,8 @@ import javafx.stage.Stage;
 public class ClientChatUI extends Application {
 
 //    private FXMLDocumentController controller;
+    public ChatClient client;
+    public String loginUsername;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -32,10 +35,14 @@ public class ClientChatUI extends Application {
         stage.show();
 
         FXMLDocumentController controller = loader.getController();
-        System.out.println(loader.getController().toString());
+
 //        controller.updateUsernameList();
-        controller.generateUsernameList();
-//        controller.createLoginDialog();
+//        controller.generateUsernameList();
+        controller.createLoginDialog();
+        loginUsername = controller.getUsername();
+        if(loginUsername != null) {
+            client = new ChatClient("127.0.0.1", 9000, loginUsername);
+        }
     }
 
     /**
