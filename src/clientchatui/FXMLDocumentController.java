@@ -8,10 +8,8 @@ package clientchatui;
 import java.awt.Window;
 import java.io.FileInputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
+
 import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.collections.ObservableList;
@@ -20,6 +18,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
@@ -29,6 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import javafx.scene.text.Text;
@@ -47,18 +47,22 @@ public class FXMLDocumentController implements Initializable {
     private Button close;
     @FXML
     private Button send;
-
     @FXML
     private ScrollPane usernameList;
-
     @FXML
     private TextField insertMsgTextField;
     @FXML
-    private TextArea displayMessageTextArea;
+    private ScrollPane messageArea;
+    @FXML
+    private Label targetClientLabel;
 
     private ChatClient client;
-    private String sendMessageTarget = null;
-    private String yourConnectionID = null;
+    private String sendMessageTarget = null; // Connection id of Targeted user
+    private String sendMessageTargetUsername = null; // Connection id of Targeted user
+    private String yourConnectionID = null; // Connection id of this client
+    private HashMap<String, ArrayList<String>> userHashMap; // Hash Map for displaying messages
+    private List<String> clientUsernameList = null;
+    private List<String> clientConnectionList = null;
 
 
     public String loginUsername = null;
@@ -119,6 +123,9 @@ public class FXMLDocumentController implements Initializable {
         Platform.runLater(() -> {
             List<HBox> usernameCellList = new ArrayList<HBox>();
             String usernameString;
+            this.clientUsernameList = usernameList;
+            this.clientConnectionList = connectionList;
+
             for (int i = 1; i < usernameList.size(); i++) {
                 if(i == selfIndex) {
                     usernameString = "You";
@@ -167,6 +174,11 @@ public class FXMLDocumentController implements Initializable {
                             public void handle(MouseEvent mouseEvent) {
                                 usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
                                 sendMessageTarget = usernameCell.getId();
+                                sendMessageTargetUsername = username.getText();
+                                updateUsernameLabel(); // Update the username label when users click on the messaging target
+                                try {
+                                    updatedMsgArea(); // Update the msg area to display all the message;
+                                } catch (Exception e) {}
                             }
                         });
                     }
@@ -202,7 +214,7 @@ public class FXMLDocumentController implements Initializable {
         String message = insertMsgTextField.getText();
         String encodedMessage = messageHeader + fromToTag + messageBody + message;
         client.writeMessage(encodedMessage);
-
+        insertMsgTextField.setText("");
     }
 
     public void createLoginDialog() {
@@ -261,5 +273,195 @@ public class FXMLDocumentController implements Initializable {
 
     public String getUsername() {
         return loginUsername;
+    }
+
+    // Onclick update the message area
+    public void updatedMsgArea() {
+        Platform.runLater(() -> {
+            VBox msgCell = null;
+            List<VBox> msgCellList = new ArrayList<>();
+            ArrayList<String> msgList, msgComponent;
+
+            msgList = userHashMap.get(sendMessageTarget);
+            System.out.println(msgList);
+
+            if(msgList == null) {
+                messageArea.setContent(null);
+                messageArea.setPannable(true);
+            } else {
+                for(int i = 0; i < msgList.size(); i++) {
+                    if(sendMessageTarget.matches("chatBoxServer.Connection@1a24k3c0")) {
+                        String[] removeHeader = msgList.get(i).split("(grp->MSGheaderFromCLIENT:)");
+
+                        msgComponent = computeUsernameMsg(removeHeader);
+                    } else {
+                        String[] removeHeader = msgList.get(i).split("(pm->MSGheaderFromCLIENT:)");
+                        msgComponent = computeUsernameMsg(removeHeader);
+                    }
+
+                    if(msgComponent.get(0).matches("You")) {
+                        Label msgtext = new Label();
+                        msgtext.setText(msgComponent.get(1));
+                        msgtext.setMaxWidth(410);
+                        msgtext.setWrapText(true);
+                        msgtext.setPadding(new Insets(15, 15, 15, 15));
+                        msgtext.setFont(new Font("Arial", 17));
+                        CornerRadii cornerRadius =  new CornerRadii(10);
+                        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
+
+                        HBox hbox = new HBox();
+                        hbox.getChildren().add(msgtext);
+                        hbox.setAlignment(Pos.BASELINE_RIGHT);
+
+                        msgCell = new VBox();
+                        msgCell.getChildren().add(hbox);
+                        msgCell.setPrefWidth(420);
+                        msgCell.setAlignment(Pos.CENTER_RIGHT);
+                    } else {
+                        Label username = new Label();
+                        username.setText(msgComponent.get(0));
+                        username.setMaxWidth(410);
+                        username.setFont(new Font("Verdana", 14));
+                        username.setWrapText(true);
+                        username.setPadding(new Insets(10, 10, 0, 10));
+
+                        Label msgtext = new Label();
+                        msgtext.setText(msgComponent.get(1));
+                        msgtext.setMaxWidth(410);
+                        msgtext.setWrapText(true);
+                        msgtext.setPadding(new Insets(5, 10, 10, 10));
+                        msgtext.setFont(new Font("Arial", 17));
+
+                        VBox mCell = new VBox(username, msgtext);
+                        CornerRadii cornerRaddius =  new CornerRadii(10);
+                        mCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRaddius, Insets.EMPTY)));
+
+                        HBox hbox = new HBox();
+                        hbox.getChildren().add(mCell);
+                        hbox.setPadding(new Insets(0,0,0,15));
+                        hbox.setAlignment(Pos.BASELINE_LEFT);
+
+                        msgCell = new VBox();
+                        msgCell.getChildren().add(hbox);
+                        msgCell.setPrefWidth(420);
+                        msgCell.setAlignment(Pos.CENTER_RIGHT);
+                    }
+
+                    msgCellList.add(msgCell);
+                }
+
+                VBox completeMsgCell = new VBox();
+                completeMsgCell.setSpacing(5);
+                completeMsgCell.setPadding(new Insets(10,0,0,0));
+                for(int i = 0; i<msgCellList.size(); i++) {
+                    completeMsgCell.getChildren().add(msgCellList.get(i));
+                }
+                messageArea.setContent(completeMsgCell);
+                messageArea.setPannable(true);
+            }
+        });
+    }
+
+    public ArrayList<String> computeUsernameMsg(String[] header) {
+        String msgHeader, msgBody, fromWho;
+        ArrayList<String> msgComponent = new ArrayList<>();
+
+        String[] removeHeader = header[1].split("(MSGbodyFromCLIENT:)");
+        msgHeader = removeHeader[0];
+        msgBody = removeHeader[1];
+
+        removeHeader = msgHeader.split("(==>)");
+        fromWho = removeHeader[0];
+
+        if(fromWho.matches(yourConnectionID)){
+            fromWho = "You";
+        } else {
+            int index = clientConnectionList.indexOf(fromWho);
+            fromWho = clientUsernameList.get(index);
+        }
+
+        msgComponent.add(fromWho);
+        msgComponent.add(msgBody);
+
+        return msgComponent;
+    }
+
+    public void setMsgHashMap(HashMap<String, ArrayList<String>> userHashMap) {
+        this.userHashMap = userHashMap;
+        updatedMsgArea();
+    }
+
+    public void updateUsernameLabel() {
+        targetClientLabel.setText(sendMessageTargetUsername);
+    }
+
+
+
+
+
+    public void test() {
+        List<VBox> msgCellList = new ArrayList<>();
+
+        Label username = new Label();
+        username.setText("JEKLasdl");
+        username.setMaxWidth(410);
+        username.setFont(new Font("Verdana", 14));
+        username.setWrapText(true);
+        username.setPadding(new Insets(10, 10, 0, 10));
+
+        Label msgtext = new Label();
+        msgtext.setText("asldkjalsd");
+        msgtext.setMaxWidth(410);
+        msgtext.setWrapText(true);
+        msgtext.setPadding(new Insets(0, 10, 5, 10));
+        msgtext.setFont(new Font("Arial", 17));
+        CornerRadii cornerRadius =  new CornerRadii(10);
+        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 0), cornerRadius, Insets.EMPTY)));
+
+        VBox msgCell = new VBox(username, msgtext);
+        CornerRadii cornerRaddius =  new CornerRadii(10);
+        msgCell.setSpacing(5);
+        msgCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRaddius, Insets.EMPTY)));
+
+        HBox hbox = new HBox();
+        hbox.getChildren().add(msgCell);
+        hbox.setAlignment(Pos.BASELINE_LEFT);
+
+        VBox mCell = new VBox();
+        mCell.getChildren().add(hbox);
+        mCell.setPrefWidth(420);
+        mCell.setAlignment(Pos.CENTER_RIGHT);
+
+
+
+//        Label msgtext = new Label();
+//        msgtext.setText("asldkjaasdsad ");
+//        msgtext.setMaxWidth(410);
+//        msgtext.setWrapText(true);
+//        msgtext.setPadding(new Insets(5, 10, 5, 10));
+//        msgtext.setFont(new Font("Arial", 17));
+//        CornerRadii cornerRadius =  new CornerRadii(10);
+//        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
+//
+//        HBox hbox = new HBox();
+//        hbox.getChildren().add(msgtext);
+//        hbox.setAlignment(Pos.BASELINE_RIGHT);
+//        hbox.setSpacing(5);
+//
+//        VBox msgCell = new VBox();
+//        msgCell.getChildren().add(hbox);
+//        msgCell.setPrefWidth(420);
+//        msgCell.setAlignment(Pos.CENTER_RIGHT);
+
+        msgCellList.add(msgCell);
+
+        VBox completeMsgCell = new VBox();
+        completeMsgCell.setSpacing(10);
+        completeMsgCell.setPadding(new Insets(5, 10, 0, 10));
+        for (int i = 0; i < msgCellList.size(); i++) {
+            completeMsgCell.getChildren().add(msgCellList.get(i));
+        }
+        messageArea.setContent(completeMsgCell);
+        messageArea.setPannable(true);
     }
 }

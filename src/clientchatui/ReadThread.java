@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.*;
 import java.net.Socket;
+import java.sql.SQLOutput;
 import java.util.*;
 
 /**
@@ -18,7 +19,7 @@ public class ReadThread implements Runnable {
     private List<String> nameOutput = new ArrayList<>();
     private List<String> connectionOutput = new ArrayList<>();
     private String concatPattern = "%CoNcAt%";
-    private HashMap<String, String> userHashMap;
+    private HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
     private ClientChatUI application;
     private String connectionID;
     private int selfIndex;
@@ -65,11 +66,12 @@ public class ReadThread implements Runnable {
                             }
                         }
 
-                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
                         updateHashMap();
+                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+                        application.controller.setMsgHashMap(userHashMap);
                     }
                 } else {
-                    System.out.println(response);
+                    decodeMessage(response);
                 }
             } catch (Exception e) {
                 System.out.println("The error is " + e);
@@ -78,17 +80,100 @@ public class ReadThread implements Runnable {
     }
 
     public void updateHashMap() {
-        userHashMap = new HashMap<>();
+
+        HashSet<String> unionKeys = null;
+
+        // Insert updated user list from server
+        HashMap<String, String> serverHashMap = new HashMap<>();
+        HashMap<String, ArrayList<String>> clientHashMap = new HashMap<>();
+
+        clientHashMap.putAll(userHashMap);
+
         for (int i = 1; i < nameOutput.size(); i++) {
-            userHashMap.put(connectionOutput.get(i), nameOutput.get(i));
+            serverHashMap.put(connectionOutput.get(i), nameOutput.get(i));
         }
 
-        Set set = userHashMap.entrySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext()) {
-            Map.Entry mentry = (Map.Entry)iterator.next();
-            System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
-            System.out.println(mentry.getValue());
+        // Remove users
+        if(clientHashMap.size() > serverHashMap.size()){
+            //Union of keys from both maps
+            unionKeys = new HashSet<>(serverHashMap.keySet());
+            unionKeys.addAll(clientHashMap.keySet());
+
+            unionKeys.removeAll(serverHashMap.keySet());
+
+            System.out.println(unionKeys + " Left");
+
+            Iterator iterator = unionKeys.iterator();
+            while(iterator.hasNext()) {
+                userHashMap.remove(iterator.next());
+            }
+        } else if(serverHashMap.size() > clientHashMap.size()) {
+            //Union of keys from both maps
+            unionKeys = new HashSet<>(clientHashMap.keySet());
+            unionKeys.addAll(serverHashMap.keySet());
+
+            unionKeys.removeAll(clientHashMap.keySet());
+
+            System.out.println(unionKeys + " Join");
+
+            Iterator iterator = unionKeys.iterator();
+            while(iterator.hasNext()) {
+                String a = iterator.next().toString();
+                userHashMap.put(a, new ArrayList<>());
+            }
+        } else {
+            // Do Nothing
+        }
+    }
+
+    public void decodeMessage(String response) {
+        String msgHeader;
+        String msgBody;
+        String targetClient;
+        String selfClient;
+        ArrayList<String> msgList;
+        if(response.startsWith("grp->MSGheaderFromCLIENT:")){
+            String[] removeHeader = response.split("(grp->MSGheaderFromCLIENT:)");
+            removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
+            msgHeader = removeHeader[0];
+            msgBody = removeHeader[1];
+
+            removeHeader = msgHeader.split("(==>)");
+            selfClient = removeHeader[0];
+            targetClient = removeHeader[1];
+
+            msgList = userHashMap.get(targetClient);
+            msgList.add(response);
+            userHashMap.put(targetClient, msgList);
+
+            Set set = userHashMap.entrySet();
+            Iterator iterator = set.iterator();
+            while(iterator.hasNext()) {
+                Map.Entry mentry = (Map.Entry)iterator.next();
+                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
+                System.out.println(mentry.getValue());
+            }
+            application.controller.setMsgHashMap(userHashMap);
+        } else if(response.startsWith("pm->MSGheaderFromCLIENT:")) {
+            String[] removeHeader = response.split("(pm->MSGheaderFromCLIENT:)");
+            removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
+            msgHeader = removeHeader[0];
+            msgBody = removeHeader[1];
+
+            removeHeader = msgHeader.split("(==>)");
+            selfClient = removeHeader[0];
+            targetClient = removeHeader[1];
+
+            if(!selfClient.matches(connectionID)){
+                msgList = userHashMap.get(selfClient);
+                msgList.add(response);
+                userHashMap.put(selfClient, msgList);
+            } else if(!targetClient.matches(connectionID)) {
+                msgList = userHashMap.get(targetClient);
+                msgList.add(response);
+                userHashMap.put(targetClient, msgList);
+            }
+            application.controller.setMsgHashMap(userHashMap);
         }
     }
 }

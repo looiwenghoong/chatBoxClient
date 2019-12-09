@@ -47,6 +47,7 @@ public class ClientChatUI extends Application {
 
         controller = loader.getController();
         controller.createLoginDialog();
+        controller.test();
 
         loginUsername = controller.getUsername();
         if(loginUsername != null) {

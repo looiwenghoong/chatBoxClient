@@ -84,9 +84,9 @@ public class Connection implements Runnable {
             System.out.println(msgHeader + " " + msgBody);
 
             if(targetClient.matches("chatBoxServer.Connection@1a24k3c0")) {
-                serverReference.broadcastMessage(response);
+                serverReference.broadcastMessage("grp->"+response);
             } else {
-                serverReference.broadcastMessageToTargetClient(selfClient, targetClient, response);
+                serverReference.broadcastMessageToTargetClient(selfClient, targetClient, "pm->"+response);
             }
         } else {
             serverReference.broadcastMessage(response);
