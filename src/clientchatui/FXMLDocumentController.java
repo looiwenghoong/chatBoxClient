@@ -38,8 +38,7 @@ import javafx.scene.text.Text;
  * @author ZhengKhai
  */
 public class FXMLDocumentController implements Initializable {
-    
-    private Label label;
+
     @FXML
     private Button home;
     @FXML
@@ -48,17 +47,29 @@ public class FXMLDocumentController implements Initializable {
     private Button close;
     @FXML
     private Button send;
-    @FXML
-    private TextField insertMsgTextField;
 
     @FXML
     private ScrollPane usernameList;
+
+    @FXML
+    private TextField insertMsgTextField;
+    @FXML
+    private TextArea displayMessageTextArea;
+
+    private ChatClient client;
+    private String sendMessageTarget = null;
+    private String yourConnectionID = null;
+
 
     public String loginUsername = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    public void initClientInstance(ChatClient client) {
+        this.client = client;
     }
 
     @FXML
@@ -104,13 +115,14 @@ public class FXMLDocumentController implements Initializable {
         });
     }
 
-    public void generateUsernameList(List<String> usernameList, int selfIndex, int numberOfUsers) {
+    public void generateUsernameList(List<String> usernameList, List<String> connectionList, int selfIndex, int numberOfUsers) {
         Platform.runLater(() -> {
             List<HBox> usernameCellList = new ArrayList<HBox>();
             String usernameString;
             for (int i = 1; i < usernameList.size(); i++) {
                 if(i == selfIndex) {
                     usernameString = "You";
+                    yourConnectionID = connectionList.get(i);
                 } else {
                     usernameString = usernameList.get(i);
                 }
@@ -134,6 +146,7 @@ public class FXMLDocumentController implements Initializable {
                 username.setWrapText(true);
 
                 HBox usernameCell = new HBox(userIconView, username);
+                usernameCell.setId(connectionList.get(i));
                 usernameCell.setSpacing(20);
                 usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
                 usernameCell.setMargin(userIconView, new Insets(10, 0, 4, 20));
@@ -141,7 +154,6 @@ public class FXMLDocumentController implements Initializable {
 
 
                 if(i != selfIndex) {
-                    System.out.println(numberOfUsers);
                     if(numberOfUsers > 1){
                         usernameCell.setOnMousePressed(new EventHandler<MouseEvent>() {
                             @Override
@@ -154,7 +166,7 @@ public class FXMLDocumentController implements Initializable {
                             @Override
                             public void handle(MouseEvent mouseEvent) {
                                 usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
-                                System.out.println("Username Clicked");
+                                sendMessageTarget = usernameCell.getId();
                             }
                         });
                     }
@@ -184,7 +196,13 @@ public class FXMLDocumentController implements Initializable {
         
     @FXML
     private void sendButton(ActionEvent event) {
-        System.out.println(insertMsgTextField.getText());
+        String messageHeader = "MSGheaderFromCLIENT:";
+        String messageBody = "MSGbodyFromCLIENT:";
+        String fromToTag = yourConnectionID + "==>" + sendMessageTarget;
+        String message = insertMsgTextField.getText();
+        String encodedMessage = messageHeader + fromToTag + messageBody + message;
+        client.writeMessage(encodedMessage);
+
     }
 
     public void createLoginDialog() {

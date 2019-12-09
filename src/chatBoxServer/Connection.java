@@ -52,18 +52,44 @@ public class Connection implements Runnable {
                 System.out.println(mentry.getValue());
             }
 
-            for(int i = 0; i<serverReference.getConnectionList().size(); i++){
-                System.out.println(serverReference.getConnectionList().get(i));
-            }
+//            for(int i = 0; i<serverReference.getConnectionList().size(); i++){
+//                System.out.println(serverReference.getConnectionList().get(i));
+//            }
 
             do {
                 String clientMessage = dis.readUTF();
-                System.out.println(clientMessage);
-                serverReference.broadcastMessage(clientMessage);
+                decodeMessage(clientMessage);
             } while (running);
 
         } catch (IOException e) {
             removeConnection();
+        }
+    }
+
+    public void decodeMessage(String response) {
+        String msgHeader;
+        String msgBody;
+        String targetClient;
+        String selfClient;
+        if(response.startsWith("MSGheaderFromCLIENT:")){
+            String[] removeHeader = response.split("(MSGheaderFromCLIENT:)");
+            removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
+            msgHeader = removeHeader[0];
+            msgBody = removeHeader[1];
+
+            removeHeader = msgHeader.split("(==>)");
+            selfClient = removeHeader[0];
+            targetClient = removeHeader[1];
+            System.out.println("Target Client: " + targetClient);
+            System.out.println(msgHeader + " " + msgBody);
+
+            if(targetClient.matches("chatBoxServer.Connection@1a24k3c0")) {
+                serverReference.broadcastMessage(response);
+            } else {
+                serverReference.broadcastMessageToTargetClient(selfClient, targetClient, response);
+            }
+        } else {
+            serverReference.broadcastMessage(response);
         }
     }
 

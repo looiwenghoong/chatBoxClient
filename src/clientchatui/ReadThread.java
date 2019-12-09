@@ -48,6 +48,7 @@ public class ReadThread implements Runnable {
                         String[] removeHeader = response.split("(USERNAMElist:)");
                         nameOutput = Arrays.asList(removeHeader[1].split(concatPattern));
                     } else if(response.startsWith("CONNECTIONid:")) {
+                        System.out.println(response);
                         String[] removeHeader = response.split("(CONNECTIONid:)");
                         connectionID = removeHeader[1];
                     } else {
@@ -64,7 +65,7 @@ public class ReadThread implements Runnable {
                             }
                         }
 
-                        application.controller.generateUsernameList(nameOutput, selfIndex, numberOfUsers);
+                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
                         updateHashMap();
                     }
                 } else {

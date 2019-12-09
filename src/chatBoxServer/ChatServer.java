@@ -59,12 +59,21 @@ public class ChatServer {
         }
     }
 
-
-
-
+    // Function to broadcast message to all the clients
     public void broadcastMessage(String theMessage){
         for( Connection clientThread: list){
             clientThread.sendMessages(theMessage);
+        }
+    }
+
+    //Function to broadcast message to 1 target client
+    public void broadcastMessageToTargetClient(String selfClient, String targetClient, String message) {
+        Connection clientThread;
+        for(int i = 0; i< list.size(); i++) {
+            clientThread = list.get(i);
+            if(clientThread.toString().matches(selfClient) || clientThread.toString().matches(targetClient)) {
+                clientThread.sendMessages(message);
+            }
         }
     }
 

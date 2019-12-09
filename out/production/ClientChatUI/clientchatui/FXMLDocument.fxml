@@ -73,7 +73,7 @@
                      </image>
                   </ImageView>
                   <ScrollPane fx:id="usernameList" layoutX="50.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="320.0" />
-                  <TextArea layoutX="423.0" layoutY="48.0" onScrollFinished="#loginButton" prefHeight="334.0" prefWidth="445.0" />
+                  <TextArea fx:id="displayMessageTextArea" editable="false" layoutX="423.0" layoutY="48.0" prefHeight="334.0" prefWidth="445.0" />
                   <TextField id="insertMsgTextField" fx:id="insertMsgTextField" layoutX="423.0" layoutY="418.0" onAction="#sendButton" prefHeight="54.0" prefWidth="330.0" promptText="Type Here ..." />
                   <Button fx:id="send" layoutX="765.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="50.0" prefWidth="104.0" style="-fx-background-color: #6441A5;">
                      <graphic>
