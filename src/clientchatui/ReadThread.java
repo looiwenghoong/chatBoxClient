@@ -63,8 +63,8 @@ public class ReadThread implements Runnable {
                         }
 
                         updateHashMap();
-                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
-                        application.controller.setMsgHashMap(userHashMap);
+//                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+//                        application.controller.setMsgHashMap(userHashMap);
                     }
                 } else {
                     decodeMessage(response);
@@ -149,7 +149,7 @@ public class ReadThread implements Runnable {
                 System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
                 System.out.println(mentry.getValue());
             }
-            application.controller.setMsgHashMap(userHashMap);
+//            application.controller.setMsgHashMap(userHashMap);
         } else if(response.startsWith("pm->MSGheaderFromCLIENT:")) {
             String[] removeHeader = response.split("(pm->MSGheaderFromCLIENT:)");
             removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
@@ -169,7 +169,7 @@ public class ReadThread implements Runnable {
                 msgList.add(response);
                 userHashMap.put(targetClient, msgList);
             }
-            application.controller.setMsgHashMap(userHashMap);
+//            application.controller.setMsgHashMap(userHashMap);
         }
     }
 }
