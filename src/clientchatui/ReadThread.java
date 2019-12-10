@@ -1,11 +1,7 @@
 package clientchatui;
 
-import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
-
 import java.io.*;
 import java.net.Socket;
-import java.sql.SQLOutput;
 import java.util.*;
 
 /**
