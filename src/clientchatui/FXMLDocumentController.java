@@ -363,11 +363,12 @@ public class FXMLDocumentController implements Initializable {
 
                 VBox completeMsgCell = new VBox();
                 completeMsgCell.setSpacing(5);
-                completeMsgCell.setPadding(new Insets(10,0,0,0));
+                completeMsgCell.setPadding(new Insets(10,0,10,0));
                 for(int i = 0; i<msgCellList.size(); i++) {
                     completeMsgCell.getChildren().add(msgCellList.get(i));
                 }
                 messageArea.setContent(completeMsgCell);
+                messageArea.setVvalue(1.0);
                 messageArea.setPannable(true);
             }
         });
