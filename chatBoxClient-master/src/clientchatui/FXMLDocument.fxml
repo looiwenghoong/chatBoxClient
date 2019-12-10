@@ -43,17 +43,20 @@
                </font>
             </Button>
             <AnchorPane prefHeight="22.0" prefWidth="158.0" />
-            <Button fx:id="chat" mnemonicParsing="false" onAction="#chatButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text="Chat" textFill="WHITE">
+            <Button fx:id="help" mnemonicParsing="false" onAction="#helpButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text=" Help" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../image/baseline_chat_bubble_outline_white_18dp.png" />
+                        <Image url="@../image/baseline_help_white_18dp.png" />
                      </image>
                   </ImageView>
                </graphic>
                <font>
                   <Font name="Eras Light ITC" size="24.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Button>
             <AnchorPane prefHeight="22.0" prefWidth="158.0" />
             <Button fx:id="bugReport" mnemonicParsing="false" onAction="#bugReportButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text="Report" textFill="WHITE">

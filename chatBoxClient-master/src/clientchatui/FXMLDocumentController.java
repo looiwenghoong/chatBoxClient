@@ -46,7 +46,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button login;
     @FXML
-    private Button chat;
+    private Button help;
     @FXML
     private Button bugReport;
     @FXML
@@ -107,18 +107,30 @@ public class FXMLDocumentController implements Initializable {
     }
     
         @FXML
-    private void chatButton(ActionEvent event) {
-        TextInputDialog dialog = new TextInputDialog("Type here . . .");
-        dialog.setTitle("Chat");
-        dialog.setHeaderText("Chat box");
-        dialog.setContentText("Try it here !");
+    private void helpButton(ActionEvent event) {
+        List<String> choices = new ArrayList<>();
+        choices.add("Cant receive message");
+        choices.add("Connection problem");
+        choices.add("Interface issues");
+        choices.add("Performance issues");
 
-        // get string vale
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Click to Select", choices);
+        dialog.setTitle("Help");
+        dialog.setHeaderText("How can we help you?");
+        dialog.setContentText("What problem have you encountered?");
+        
+
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
-          System.out.println("User input: " + result.get());
-            }
-        result.ifPresent(name -> System.out.println("Your name: " + name));
+         System.out.println("Your choice: " + result.get());
+        }
+        result.ifPresent(letter -> System.out.println("Your choice: " + letter));
+            Alert option = new Alert(AlertType.INFORMATION);
+                  option.setTitle(" Help Box");
+                  option.setHeaderText("Noted ! Sorry for inconvenience cause.");
+                  option.setContentText("We will contact you as soon as possbile !");
+                  option.showAndWait();
     }
     
     
