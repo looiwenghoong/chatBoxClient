@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fed0d215-1a9a-496e-b5b8-d1da5dac5900" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocument.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocument.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/FXMLDocumentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/clientchatui/FXMLDocument.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientchatui/FXMLDocument.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatBoxServer/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatBoxServer/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatBoxServer/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatBoxServer/Connection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/clientchatui/FXMLDocumentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientchatui/FXMLDocumentController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,12 +45,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="fxml" value="10" />
-          <entry key="java" value="14363" />
+          <entry key="java" value="14576" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="14363" />
+          <entry key="JAVA" value="14576" />
           <entry key="XML" value="10" />
         </counts>
       </usages-collector>
@@ -62,11 +58,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/clientchatui/FXMLDocumentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
+            <state relative-caret-position="-72">
+              <caret line="330" column="53" lean-forward="true" selection-start-line="330" selection-start-column="53" selection-end-line="330" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -120,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/chatBoxServer/Connection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="85" column="70" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="70" />
+            <state relative-caret-position="330">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/chatBoxServer/ChatServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
+            <state relative-caret-position="1170">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,7 +159,9 @@
       <find>updated</find>
       <find>setMs</find>
       <find>send</find>
+      <find>userHashMap</find>
       <find>numberOfUsers</find>
+      <find>getNumber</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,13 +171,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/clientchatui/ChatServer.java" />
-        <option value="$PROJECT_DIR$/src/chatBoxServer/ChatServer.java" />
-        <option value="$PROJECT_DIR$/src/chatBoxServer/Connection.java" />
         <option value="$PROJECT_DIR$/src/clientchatui/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/clientchatui/ReadThread.java" />
         <option value="$PROJECT_DIR$/src/clientchatui/ClientChatUI.java" />
         <option value="$PROJECT_DIR$/src/clientchatui/FXMLDocument.fxml" />
+        <option value="$PROJECT_DIR$/src/chatBoxServer/ChatServer.java" />
         <option value="$PROJECT_DIR$/src/clientchatui/FXMLDocumentController.java" />
+        <option value="$PROJECT_DIR$/src/chatBoxServer/Connection.java" />
       </list>
     </option>
   </component>
@@ -304,12 +302,12 @@
       <option name="presentableId" value="Default" />
       <updated>1575694624830</updated>
       <workItem from="1575694627370" duration="94803000" />
-      <workItem from="1575943718372" duration="636000" />
+      <workItem from="1575943718372" duration="2175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95439000" />
+    <option name="totallyTimeSpent" value="96978000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1440" height="877" extended-state="6" />
@@ -322,14 +320,14 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.22165605" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.22165605" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.22165605" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3299363" />
       <window_info anchor="right" id="Palette" order="0" />
@@ -368,26 +366,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/image/baseline_face_white_18dp.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chatBoxServer/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="85" column="70" selection-start-line="85" selection-start-column="37" selection-end-line="85" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/chatBoxServer/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clientchatui/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -429,8 +407,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/clientchatui/FXMLDocumentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
+        <state relative-caret-position="-72">
+          <caret line="330" column="53" lean-forward="true" selection-start-line="330" selection-start-column="53" selection-end-line="330" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chatBoxServer/ChatServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1170">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/chatBoxServer/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

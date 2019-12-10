@@ -317,8 +317,7 @@ public class FXMLDocumentController implements Initializable {
                         msgtext.setPadding(new Insets(15, 15, 15, 15));
                         msgtext.setFont(new Font("Arial", 17));
                         CornerRadii cornerRadius =  new CornerRadii(10);
-                        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
-                        msgtext.setEffect(new DropShadow(10, Color.BLACK));
+                        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(224, 224, 224), cornerRadius, Insets.EMPTY)));
 
                         HBox hbox = new HBox();
                         hbox.getChildren().add(msgtext);

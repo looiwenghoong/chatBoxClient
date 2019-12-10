@@ -79,13 +79,8 @@ public class ChatServer {
         return list.size();
     }
 
-
     public Connection getConnectionID() {
         return c;
-    }
-
-    public ArrayList<Connection> getConnectionList() {
-        return list;
     }
 
     public void removeConnection(Connection connectionID) {
