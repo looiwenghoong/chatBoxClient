@@ -5,9 +5,7 @@
  */
 package clientchatui;
 
-import com.sun.tools.javac.Main;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
