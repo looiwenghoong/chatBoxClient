@@ -22,7 +22,7 @@ public class ChatClient {
     public ReadThread readThread;
     private ChatServer server = null;
 
-    public ChatClient (String address, int port, String loginUsername, ClientChatUI application, FXMLLoader loader) {
+    public ChatClient (String address, int port, String loginUsername, ClientChatUI application, FXMLDocumentController controller) {
         try {
             socket = new Socket(address, port);
             System.out.println("Connected to server at port " + port);
@@ -30,7 +30,7 @@ public class ChatClient {
             writeUsernameToServer(loginUsername);
 
             // Thread to listen to incoming messages
-            readThread = new ReadThread(socket, this, application, loader);
+            readThread = new ReadThread(socket, this, application, controller);
             Thread t = new Thread(readThread);
             t.start();
         } catch (UnknownHostException u) {

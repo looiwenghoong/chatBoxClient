@@ -25,12 +25,12 @@ public class ReadThread implements Runnable {
     private FXMLDocumentController controller;
 
 
-    public ReadThread(Socket socket, ChatClient client, ClientChatUI application, FXMLLoader loader) {
+    public ReadThread(Socket socket, ChatClient client, ClientChatUI application, FXMLDocumentController controller) {
         this.socket = socket;
         this.client = client;
         this.application = application;
 //        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
-        controller = loader.getController();
+        this.controller = controller;
 
         try {
             InputStream input = socket.getInputStream();
