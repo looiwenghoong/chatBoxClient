@@ -1,6 +1,7 @@
 package clientchatui;
 
 import chatBoxServer.ChatServer;
+import javafx.fxml.FXMLLoader;
 
 import java.io.*;
 import java.net.Socket;
@@ -21,7 +22,7 @@ public class ChatClient {
     public ReadThread readThread;
     private ChatServer server = null;
 
-    public ChatClient (String address, int port, String loginUsername, ClientChatUI application) {
+    public ChatClient (String address, int port, String loginUsername, ClientChatUI application, FXMLLoader loader) {
         try {
             socket = new Socket(address, port);
             System.out.println("Connected to server at port " + port);
@@ -29,7 +30,7 @@ public class ChatClient {
             writeUsernameToServer(loginUsername);
 
             // Thread to listen to incoming messages
-            readThread = new ReadThread(socket, this, application);
+            readThread = new ReadThread(socket, this, application, loader);
             Thread t = new Thread(readThread);
             t.start();
         } catch (UnknownHostException u) {

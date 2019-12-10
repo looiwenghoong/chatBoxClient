@@ -1,5 +1,7 @@
 package clientchatui;
 
+import javafx.fxml.FXMLLoader;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.*;
@@ -20,12 +22,15 @@ public class ReadThread implements Runnable {
     private String connectionID;
     private int selfIndex;
     private int numberOfUsers = 0;
+    private FXMLDocumentController controller;
 
 
-    public ReadThread(Socket socket, ChatClient client, ClientChatUI application) {
+    public ReadThread(Socket socket, ChatClient client, ClientChatUI application, FXMLLoader loader) {
         this.socket = socket;
         this.client = client;
         this.application = application;
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+        controller = loader.getController();
 
         try {
             InputStream input = socket.getInputStream();
@@ -63,7 +68,7 @@ public class ReadThread implements Runnable {
                         }
 
                         updateHashMap();
-                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+                        controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
 //                        application.controller.setMsgHashMap(userHashMap);
                     }
                 } else {
