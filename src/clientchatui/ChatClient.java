@@ -26,7 +26,7 @@ public class ChatClient {
             System.out.println("Connected to server at port " + port);
 
             writeUsernameToServer(loginUsername);
-
+//            System.out.println(StackWalker.getInstance().getCallerClass());
             // Thread to listen to incoming messages
             readThread = new ReadThread(socket, this, application, controller);
             Thread t = new Thread(readThread);

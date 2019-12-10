@@ -29,6 +29,7 @@ public class ClientChatUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         Parent root = loader.load();
 
