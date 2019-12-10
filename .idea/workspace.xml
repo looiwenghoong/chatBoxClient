@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fed0d215-1a9a-496e-b5b8-d1da5dac5900" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/ReadThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientChatUI/clientchatui/ReadThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ChatServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatBoxServer/ChatServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/clientchatui/ReadThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/clientchatui/ReadThread.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/clientchatui/ReadThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="65" column="59" selection-start-line="65" selection-start-column="59" selection-end-line="66" selection-end-column="76" />
+            <state relative-caret-position="368">
+              <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -113,10 +112,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-461" />
+            <state relative-caret-position="-176" />
           </provider>
         </entry>
       </file>
@@ -140,18 +139,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#556#557#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/chatBoxServer/ChatServerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -354,7 +341,7 @@
       <option name="presentableId" value="Default" />
       <updated>1575694624830</updated>
       <workItem from="1575694627370" duration="94803000" />
-      <workItem from="1575943718372" duration="14293000" />
+      <workItem from="1575943718372" duration="14559000" />
     </task>
     <servers />
   </component>
@@ -379,26 +366,26 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109096000" />
+    <option name="totallyTimeSpent" value="109362000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1440" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20314735" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20314735" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" visible="true" weight="0.36305732" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4985694" weight="0.36305732" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.36305732" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.36305732" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.22165605" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32911393" />
@@ -566,17 +553,7 @@
     <entry file="file://$PROJECT_DIR$/src/chatBoxServer/ChatServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/clientchatui/ReadThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="65" column="59" selection-start-line="65" selection-start-column="59" selection-end-line="66" selection-end-column="76" />
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -585,7 +562,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-461" />
+        <state relative-caret-position="-176" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/clientchatui/ReadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="66" column="38" lean-forward="true" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

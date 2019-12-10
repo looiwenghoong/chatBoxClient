@@ -63,7 +63,7 @@ public class ReadThread implements Runnable {
                         }
 
                         updateHashMap();
-//                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+                        application.controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
 //                        application.controller.setMsgHashMap(userHashMap);
                     }
                 } else {
