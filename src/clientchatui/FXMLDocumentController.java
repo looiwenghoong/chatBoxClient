@@ -21,6 +21,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -44,6 +45,10 @@ public class FXMLDocumentController implements Initializable {
     private Button home;
     @FXML
     private Button login;
+    @FXML
+    private Button help;
+    @FXML
+    private Button bugReport;
     @FXML
     private Button close;
     @FXML
@@ -102,8 +107,90 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
+    private void helpButton(ActionEvent event) {
+        List<String> choices = new ArrayList<>();
+        choices.add("Cant receive message");
+        choices.add("Connection problem");
+        choices.add("Interface issues");
+        choices.add("Performance issues");
+
+
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("Click to Select", choices);
+        dialog.setTitle("Help");
+        dialog.setHeaderText("How can we help you?");
+        dialog.setContentText("What problem have you encountered?");
+
+
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()){
+            System.out.println("Your choice: " + result.get());
+        }
+        result.ifPresent(letter -> System.out.println("Your choice: " + letter));
+        Alert option = new Alert(AlertType.INFORMATION);
+        option.setTitle(" Help Box");
+        option.setHeaderText("Noted ! Sorry for inconvenience cause.");
+        option.setContentText("We will contact you as soon as possbile !");
+        option.showAndWait();
+    }
+
+
+    @FXML
+    private void bugReportButton(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Bug Report");
+        alert.setHeaderText("Seems like you have discovered some bugs\t...");
+        alert.setContentText("Choose your option.");
+
+        ButtonType buttonTypeOne = new ButtonType("Inform us ");
+        ButtonType buttonTypeTwo = new ButtonType("Message us");
+        ButtonType buttonTypeThree = new ButtonType("Call us");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne){
+            // ... user chose "Inform us"
+            System.out.println("Noted. Thanks, We will contact you as soon as possbile !");
+            Alert option1 = new Alert(Alert.AlertType.WARNING);
+            option1.setTitle(" Bug Report (Inform us)");
+            option1.setHeaderText("Noted ! Thanks for helping us improving our software!");
+            option1.setContentText("We will contact you as soon as possbile !");
+            option1.showAndWait();
+
+        } else if (result.get() == buttonTypeTwo) {
+            // ... user chose "Message us"
+            TextInputDialog dialog = new TextInputDialog("Type here");
+            dialog.setTitle("Bug Report (Message us)");
+            dialog.setHeaderText("Tell us what happen .\t.\t.");
+            dialog.setContentText("Provide Description:");
+
+            Optional<String> option2 = dialog.showAndWait();
+            if (option2.isPresent()){
+                System.out.println("Description of bugs: " + option2.get());
+                Alert option2_1 = new Alert(Alert.AlertType.INFORMATION);
+                option2_1.setTitle("Information Dialog");
+                option2_1.setHeaderText(null);
+                option2_1.setContentText("Noted. Thanks for your feedback.\nHave a great day !");
+                option2_1.showAndWait();
+            }
+
+            option2.ifPresent(name -> System.out.println("Your name: " + name));
+        } else if (result.get() == buttonTypeThree) {
+            // ... user chose "Call us"
+            Alert option3 = new Alert(Alert.AlertType.INFORMATION);
+            option3.setTitle("Bug Report (Call us)");
+            option3.setHeaderText(null);
+            option3.setContentText("Contact us:\n010-XXXXXXX(Ooi Zheng Khai)\n\t\t\tor\n018-XXXXXXX(Looi Wei Hoong)");
+
+            option3.showAndWait();
+        } else {
+        }
+    }
+
+    @FXML
     private void closeButton(ActionEvent event) {
-        
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Exit Confirmation");
         alert.setContentText("Are you sure??");
@@ -114,7 +201,7 @@ public class FXMLDocumentController implements Initializable {
 
         alert.showAndWait().ifPresent(type -> {
             if (type == yesButton) {
-                 javafx.stage.Window window =   ((Node)(event.getSource())).getScene().getWindow();
+                javafx.stage.Window window =   ((Node)(event.getSource())).getScene().getWindow();
                 if (window instanceof Stage){
                     ((Stage) window).close();
                     System.exit(-1);
@@ -216,7 +303,7 @@ public class FXMLDocumentController implements Initializable {
             usernameList.setPannable(true);
         });
     }
-        
+
     @FXML
     private void sendButton(ActionEvent event) {
         String messageHeader = "MSGheaderFromCLIENT:";
@@ -363,12 +450,11 @@ public class FXMLDocumentController implements Initializable {
 
                 VBox completeMsgCell = new VBox();
                 completeMsgCell.setSpacing(5);
-                completeMsgCell.setPadding(new Insets(10,0,10,0));
+                completeMsgCell.setPadding(new Insets(10,0,0,0));
                 for(int i = 0; i<msgCellList.size(); i++) {
                     completeMsgCell.getChildren().add(msgCellList.get(i));
                 }
                 messageArea.setContent(completeMsgCell);
-                messageArea.setVvalue(1.0);
                 messageArea.setPannable(true);
             }
         });

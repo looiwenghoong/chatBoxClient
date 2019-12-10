@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="1044.0" style="-fx-background-color: #66FF66;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientchatui.FXMLDocumentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="1044.0" style="-fx-background-color: #66FF66;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientchatui.FXMLDocumentController">
    <left>
       <VBox prefHeight="583.0" prefWidth="158.0" style="-fx-background-color: #330066;" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="122.0" prefWidth="158.0" />
+            <AnchorPane prefHeight="64.0" prefWidth="158.0" />
             <Button fx:id="home" mnemonicParsing="false" onAction="#homeButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text="Home" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -29,7 +29,7 @@
                   <Font name="Eras Light ITC" size="24.0" />
                </font>
             </Button>
-            <AnchorPane prefHeight="70.0" prefWidth="188.0" />
+            <AnchorPane prefHeight="22.0" prefWidth="158.0" />
             <Button fx:id="login" mnemonicParsing="false" onAction="#loginButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text="Login" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -42,7 +42,36 @@
                   <Font name="Eras Light ITC" size="24.0" />
                </font>
             </Button>
-            <AnchorPane prefHeight="70.0" prefWidth="192.0" />
+            <AnchorPane prefHeight="22.0" prefWidth="158.0" />
+            <Button fx:id="help" mnemonicParsing="false" onAction="#helpButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text=" Help" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/baseline_help_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Eras Light ITC" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+            <AnchorPane prefHeight="22.0" prefWidth="158.0" />
+            <Button fx:id="bugReport" mnemonicParsing="false" onAction="#bugReportButton" prefHeight="70.0" prefWidth="160.0" style="-fx-background-color: #330066;" text="Report" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/baseline_bug_report_white_18dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Eras Light ITC" size="24.0" />
+               </font>
+            </Button>
+            <AnchorPane prefHeight="22.0" prefWidth="158.0" />
             <Button fx:id="close" mnemonicParsing="false" onAction="#closeButton" prefHeight="60.0" prefWidth="170.0" style="-fx-background-color: #330066;" text="Close" textFill="WHITE">
                <font>
                   <Font name="Eras Light ITC" size="24.0" />
@@ -73,7 +102,7 @@
                         <Image url="@../image/onlineuserpurple.png" />
                      </image>
                   </ImageView>
-                  <ScrollPane fx:id="usernameList" layoutX="50.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="320.0" />
+                  <ScrollPane fx:id="usernameList" layoutX="45.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="320.0" />
                   <ScrollPane fx:id="messageArea" layoutX="423.0" layoutY="95.0" prefHeight="288.0" prefWidth="445.0" />
                   <TextField id="insertMsgTextField" fx:id="insertMsgTextField" editable="false" layoutX="423.0" layoutY="418.0" onAction="#sendButton" prefHeight="54.0" prefWidth="330.0" promptText="Type Here ..." />
                   <Button fx:id="sendBtn" disable="true" layoutX="765.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="50.0" prefWidth="104.0" style="-fx-background-color: #6441A5;">
