@@ -1,8 +1,6 @@
 package clientchatui;
 
 import chatBoxServer.ChatServer;
-import javafx.fxml.FXMLLoader;
-
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;

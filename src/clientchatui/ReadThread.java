@@ -1,7 +1,5 @@
 package clientchatui;
 
-import javafx.fxml.FXMLLoader;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.*;
@@ -29,7 +27,6 @@ public class ReadThread implements Runnable {
         this.socket = socket;
         this.client = client;
         this.application = application;
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
         this.controller = controller;
 
         try {
