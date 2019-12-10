@@ -27,7 +27,6 @@ public class Connection implements Runnable {
         this.client = client;
         this.dis = dis;
         this.dos = dos;
-        this.state = STATE_UNREGISTERED;
         messageCount = 0;
     }
 

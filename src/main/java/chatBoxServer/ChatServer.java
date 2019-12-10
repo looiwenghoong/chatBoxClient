@@ -14,13 +14,14 @@ public class ChatServer {
     final static int port = 9000;
 
     private ServerSocket server;
-    private ArrayList<Connection> list;
+    public ArrayList<Connection> list;
     private Socket s;
     private Connection c = null;
 
 
     public static void main(String args[]) {
         chatServer = new ChatServer(port);
+        chatServer.onServerRunning();
     }
 
     public ChatServer (int port) {
@@ -28,30 +29,39 @@ public class ChatServer {
             server = new ServerSocket(port);
             System.out.println("Server has been initialised on port " + port);
         }
-        catch (IOException e) {
+        catch (Exception e) {
             System.err.println("error initialising server");
-            e.printStackTrace();
         }
+    }
+
+    private void onServerRunning() {
         list = new ArrayList<>();
         while(true) {
-
             try {
                 s = server.accept();
-
-                DataInputStream dis = new DataInputStream(s.getInputStream());
-                DataOutputStream dos = new DataOutputStream(s.getOutputStream());
-
-                c = new Connection(s, this, dis, dos);
-
-                Thread t = new Thread(c);
-                System.out.println(c + " connected to the server");
-                System.out.println("Adding new Client to active client list");
-                list.add(c);
-
-                t.start();
+                createConnection(s);
             } catch (Exception e) {
                 System.out.println(e);
             }
+        }
+    }
+
+    // Function to create connection by passing in incoming socket
+    // Add newly created connection to list
+    public void createConnection(Socket socket) {
+        try {
+            DataInputStream dis = new DataInputStream(socket.getInputStream());
+            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+            c = new Connection(s, this, dis, dos);
+            addNewConnectionToList(c);
+
+            Thread t = new Thread(c);
+            System.out.println(c + " connected to the server");
+            System.out.println("Adding new Client to active client list");
+
+            t.start();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -73,6 +83,9 @@ public class ChatServer {
         }
     }
 
+    public void addNewConnectionToList(Connection c) {
+        list.add(c);
+    }
 
     public int getNumberOfUsers() {
         return list.size();
