@@ -10,7 +10,7 @@ import java.util.*;
 public class ChatServer {
 
     // Init values for server starting
-    static ChatServer chatServer;
+    static ChatServer chatServer = null;
     final static int port = 9000;
 
     private ServerSocket server;
@@ -20,7 +20,6 @@ public class ChatServer {
 
 
     public static void main(String args[]) {
-
         chatServer = new ChatServer(port);
     }
 
@@ -33,7 +32,7 @@ public class ChatServer {
             System.err.println("error initialising server");
             e.printStackTrace();
         }
-        list = new ArrayList<Connection>();
+        list = new ArrayList<>();
         while(true) {
 
             try {

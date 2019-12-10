@@ -117,6 +117,7 @@ public class FXMLDocumentController implements Initializable {
                  javafx.stage.Window window =   ((Node)(event.getSource())).getScene().getWindow();
                 if (window instanceof Stage){
                     ((Stage) window).close();
+                    System.exit(-1);
                 }
             } else if (type == noButton) {
             } else {
@@ -293,7 +294,6 @@ public class FXMLDocumentController implements Initializable {
             ArrayList<String> msgList, msgComponent;
 
             msgList = userHashMap.get(sendMessageTarget);
-            System.out.println(msgList);
 
             if(msgList == null) {
                 messageArea.setContent(null);
@@ -322,6 +322,7 @@ public class FXMLDocumentController implements Initializable {
                         HBox hbox = new HBox();
                         hbox.getChildren().add(msgtext);
                         hbox.setAlignment(Pos.BASELINE_RIGHT);
+                        hbox.setPadding(new Insets(0,0,0,50));
 
                         msgCell = new VBox();
                         msgCell.getChildren().add(hbox);
@@ -348,7 +349,7 @@ public class FXMLDocumentController implements Initializable {
 
                         HBox hbox = new HBox();
                         hbox.getChildren().add(mCell);
-                        hbox.setPadding(new Insets(0,0,0,15));
+                        hbox.setPadding(new Insets(0,50,0,15));
                         hbox.setAlignment(Pos.BASELINE_LEFT);
 
                         msgCell = new VBox();
@@ -411,57 +412,58 @@ public class FXMLDocumentController implements Initializable {
 
     public void test() {
         List<VBox> msgCellList = new ArrayList<>();
-
-        Label username = new Label();
-        username.setText("JEKLasdl");
-        username.setMaxWidth(410);
-        username.setFont(new Font("Verdana", 14));
-        username.setWrapText(true);
-        username.setPadding(new Insets(10, 10, 0, 10));
-
-        Label msgtext = new Label();
-        msgtext.setText("asldkjalsd");
-        msgtext.setMaxWidth(410);
-        msgtext.setWrapText(true);
-        msgtext.setPadding(new Insets(0, 10, 5, 10));
-        msgtext.setFont(new Font("Arial", 17));
-        CornerRadii cornerRadius =  new CornerRadii(10);
-        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 0), cornerRadius, Insets.EMPTY)));
-
-        VBox msgCell = new VBox(username, msgtext);
-        CornerRadii cornerRaddius =  new CornerRadii(10);
-        msgCell.setSpacing(5);
-        msgCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRaddius, Insets.EMPTY)));
-
-        HBox hbox = new HBox();
-        hbox.getChildren().add(msgCell);
-        hbox.setAlignment(Pos.BASELINE_LEFT);
-
-        VBox mCell = new VBox();
-        mCell.getChildren().add(hbox);
-        mCell.setPrefWidth(420);
-        mCell.setAlignment(Pos.CENTER_RIGHT);
-
-
-
+//
+//        Label username = new Label();
+//        username.setText("JEKLasdl");
+//        username.setMaxWidth(410);
+//        username.setFont(new Font("Verdana", 14));
+//        username.setWrapText(true);
+//        username.setPadding(new Insets(10, 10, 0, 10));
+//
 //        Label msgtext = new Label();
-//        msgtext.setText("asldkjaasdsad ");
+//        msgtext.setText("asldkjalsd");
 //        msgtext.setMaxWidth(410);
 //        msgtext.setWrapText(true);
-//        msgtext.setPadding(new Insets(5, 10, 5, 10));
+//        msgtext.setPadding(new Insets(0, 10, 5, 10));
 //        msgtext.setFont(new Font("Arial", 17));
 //        CornerRadii cornerRadius =  new CornerRadii(10);
-//        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
+//        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 0), cornerRadius, Insets.EMPTY)));
+//
+//        VBox msgCell = new VBox(username, msgtext);
+//        CornerRadii cornerRaddius =  new CornerRadii(10);
+//        msgCell.setSpacing(5);
+//        msgCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRaddius, Insets.EMPTY)));
 //
 //        HBox hbox = new HBox();
-//        hbox.getChildren().add(msgtext);
-//        hbox.setAlignment(Pos.BASELINE_RIGHT);
-//        hbox.setSpacing(5);
+//        hbox.getChildren().add(msgCell);
+//        hbox.setAlignment(Pos.BASELINE_LEFT);
 //
-//        VBox msgCell = new VBox();
-//        msgCell.getChildren().add(hbox);
-//        msgCell.setPrefWidth(420);
-//        msgCell.setAlignment(Pos.CENTER_RIGHT);
+//        VBox mCell = new VBox();
+//        mCell.getChildren().add(hbox);
+//        mCell.setPrefWidth(420);
+//        mCell.setAlignment(Pos.CENTER_RIGHT);
+
+
+
+        Label msgtext = new Label();
+        msgtext.setText("asldkjaasdsad  asdlaksjdljslad saldja sdjlkasjdlkj asldjlkasjdlklksajdlkjaslkd llsakjdlkj");
+        msgtext.setMaxWidth(410);
+        msgtext.setWrapText(true);
+        msgtext.setPadding(new Insets(15, 15, 15, 15));
+        msgtext.setFont(new Font("Arial", 17));
+        CornerRadii cornerRadius =  new CornerRadii(10);
+        msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
+
+        HBox hbox = new HBox();
+        hbox.getChildren().add(msgtext);
+        hbox.setAlignment(Pos.BASELINE_RIGHT);
+        hbox.setSpacing(5);
+        hbox.setPadding(new Insets(0,0,0,50));
+
+        VBox msgCell = new VBox();
+        msgCell.getChildren().add(hbox);
+        msgCell.setPrefWidth(420);
+        msgCell.setAlignment(Pos.CENTER_RIGHT);
 
         msgCellList.add(msgCell);
 

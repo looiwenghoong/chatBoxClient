@@ -49,7 +49,7 @@ public class ReadThread implements Runnable {
                         String[] removeHeader = response.split("(USERNAMElist:)");
                         nameOutput = Arrays.asList(removeHeader[1].split(concatPattern));
                     } else if(response.startsWith("CONNECTIONid:")) {
-                        System.out.println(response);
+//                        System.out.println(response);
                         String[] removeHeader = response.split("(CONNECTIONid:)");
                         connectionID = removeHeader[1];
                     } else {
@@ -74,7 +74,7 @@ public class ReadThread implements Runnable {
                     decodeMessage(response);
                 }
             } catch (Exception e) {
-                System.out.println("The error is " + e);
+                System.exit(-1);
             }
         }
     }
@@ -101,7 +101,7 @@ public class ReadThread implements Runnable {
 
             unionKeys.removeAll(serverHashMap.keySet());
 
-            System.out.println(unionKeys + " Left");
+//            System.out.println(unionKeys + " Left");
 
             Iterator iterator = unionKeys.iterator();
             while(iterator.hasNext()) {
@@ -114,7 +114,7 @@ public class ReadThread implements Runnable {
 
             unionKeys.removeAll(clientHashMap.keySet());
 
-            System.out.println(unionKeys + " Join");
+//            System.out.println(unionKeys + " Join");
 
             Iterator iterator = unionKeys.iterator();
             while(iterator.hasNext()) {

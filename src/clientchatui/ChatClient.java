@@ -34,9 +34,9 @@ public class ChatClient {
             Thread t = new Thread(readThread);
             t.start();
         } catch (UnknownHostException u) {
-            System.out.println(u);
+            System.out.println("Unable to connect to server");
         } catch (IOException e) {
-            System.out.println(e);
+            System.out.println("Unable to connect to server");
         }
     }
 
