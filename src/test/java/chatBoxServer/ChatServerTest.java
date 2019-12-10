@@ -5,9 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ChatServerTest {
-
     @Test
-    public void testRun1() {
-        System.out.println("Hello");
+    public void test() {
+        System.out.println("Hello world");
     }
 }
