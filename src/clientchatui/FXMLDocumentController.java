@@ -22,6 +22,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -46,7 +47,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button close;
     @FXML
-    private Button send;
+    private Button sendBtn;
     @FXML
     private ScrollPane usernameList;
     @FXML
@@ -55,6 +56,8 @@ public class FXMLDocumentController implements Initializable {
     private ScrollPane messageArea;
     @FXML
     private Label targetClientLabel;
+    @FXML
+    private Label totalUsersLabel;
 
     private ChatClient client;
     private String sendMessageTarget = null; // Connection id of Targeted user
@@ -70,6 +73,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        insertMsgTextField.setEditable(false);
+        insertMsgTextField.setDisable(true);
     }
 
     public void initClientInstance(ChatClient client) {
@@ -125,6 +130,7 @@ public class FXMLDocumentController implements Initializable {
             String usernameString;
             this.clientUsernameList = usernameList;
             this.clientConnectionList = connectionList;
+            totalUsersLabel.setText(Integer.toString(numberOfUsers));
 
             for (int i = 1; i < usernameList.size(); i++) {
                 if(i == selfIndex) {
@@ -173,6 +179,10 @@ public class FXMLDocumentController implements Initializable {
                             @Override
                             public void handle(MouseEvent mouseEvent) {
                                 usernameCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 255), CornerRadii.EMPTY, Insets.EMPTY)));
+                                insertMsgTextField.setEditable(true);
+                                sendBtn.setDisable(false);
+                                insertMsgTextField.setEditable(true);
+                                insertMsgTextField.setDisable(false);
                                 sendMessageTarget = usernameCell.getId();
                                 sendMessageTargetUsername = username.getText();
                                 updateUsernameLabel(); // Update the username label when users click on the messaging target
@@ -308,6 +318,7 @@ public class FXMLDocumentController implements Initializable {
                         msgtext.setFont(new Font("Arial", 17));
                         CornerRadii cornerRadius =  new CornerRadii(10);
                         msgtext.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRadius, Insets.EMPTY)));
+                        msgtext.setEffect(new DropShadow(10, Color.BLACK));
 
                         HBox hbox = new HBox();
                         hbox.getChildren().add(msgtext);
@@ -334,7 +345,7 @@ public class FXMLDocumentController implements Initializable {
 
                         VBox mCell = new VBox(username, msgtext);
                         CornerRadii cornerRaddius =  new CornerRadii(10);
-                        mCell.setBackground(new Background(new BackgroundFill(Color.rgb(255, 255, 22), cornerRaddius, Insets.EMPTY)));
+                        mCell.setBackground(new Background(new BackgroundFill(Color.rgb(224, 224, 224), cornerRaddius, Insets.EMPTY)));
 
                         HBox hbox = new HBox();
                         hbox.getChildren().add(mCell);

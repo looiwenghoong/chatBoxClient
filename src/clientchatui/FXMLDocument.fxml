@@ -75,10 +75,10 @@
                   </ImageView>
                   <ScrollPane fx:id="usernameList" layoutX="50.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="320.0" />
                   <ScrollPane fx:id="messageArea" layoutX="423.0" layoutY="95.0" prefHeight="288.0" prefWidth="445.0" />
-                  <TextField id="insertMsgTextField" fx:id="insertMsgTextField" layoutX="423.0" layoutY="418.0" onAction="#sendButton" prefHeight="54.0" prefWidth="330.0" promptText="Type Here ..." />
-                  <Button fx:id="send" layoutX="765.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="50.0" prefWidth="104.0" style="-fx-background-color: #6441A5;">
+                  <TextField id="insertMsgTextField" fx:id="insertMsgTextField" editable="false" layoutX="423.0" layoutY="418.0" onAction="#sendButton" prefHeight="54.0" prefWidth="330.0" promptText="Type Here ..." />
+                  <Button fx:id="sendBtn" disable="true" layoutX="765.0" layoutY="420.0" mnemonicParsing="false" onAction="#sendButton" prefHeight="50.0" prefWidth="104.0" style="-fx-background-color: #6441A5;">
                      <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView disable="true" fitHeight="27.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/baseline_send_white_18dp.png" />
                            </image>
@@ -92,6 +92,16 @@
                      <padding>
                         <Insets left="10.0" />
                      </padding>
+                  </Label>
+                  <Label fx:id="totalUsersLabel" layoutX="266.0" layoutY="163.0" maxWidth="100.0" text="0">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="248.0" layoutY="148.0" prefHeight="49.0" prefWidth="30.0" text=":" textFill="#ff66cc">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
                   </Label>
                </children>
             </AnchorPane>
