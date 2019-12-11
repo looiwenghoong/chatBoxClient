@@ -1,0 +1,44 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java' //assume that your source codes are inside this path
+        }
+        resources {
+            srcDirs = ['src/main/resources/image', 'src/main/resources']
+            exclude "**/*.java"
+        }
+    }
+}
+
+mainClassName = 'clientchatui.ClientChatUI'
+
+dependencies {
+//    testImplementation(
+//            'junit:junit:4.12',
+//            'org.junit.jupiter:junit-jupiter-api:5.4.2'
+//    )
+//    testRuntime(
+//            'org.junit.jupiter:junit-jupiter-engine:5.4.2',
+//            'org.junit.vintage:junit-vintage-engine:5.4.2'
+//    )
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+}
+
+test {
+    useJUnitPlatform()
+}
