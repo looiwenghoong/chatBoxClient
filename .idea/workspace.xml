@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2035d5c5-8e26-405f-ac4c-76d2f51176ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -82,13 +78,13 @@
         <counts>
           <entry key="fxml" value="42" />
           <entry key="gradle" value="234" />
-          <entry key="java" value="2531" />
+          <entry key="java" value="3157" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="234" />
-          <entry key="JAVA" value="2531" />
+          <entry key="JAVA" value="3157" />
           <entry key="XML" value="42" />
         </counts>
       </usages-collector>
@@ -138,11 +134,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="146" column="14" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="152" selection-end-column="15" />
+                <state relative-caret-position="111">
+                  <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="47" selection-end-column="89" />
                 </state>
               </provider>
             </entry>
@@ -171,11 +167,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-839">
-                  <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+                <state relative-caret-position="297">
+                  <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -200,7 +196,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/ChatServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-122">
+                <state relative-caret-position="79">
                   <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
                   <folding>
                     <element signature="e#2665#2666#0" expanded="true" />
@@ -641,17 +637,18 @@
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java" />
         <option value="$PROJECT_DIR$/src/main/resources/FXMLDocument.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatBoxServer/ChatServer.java" />
         <option value="$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/FXMLDocumentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="56" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1536" />
+    <option name="y" value="38" />
     <option name="width" value="1440" />
     <option name="height" value="803" />
   </component>
@@ -875,7 +872,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1575986191053</updated>
-      <workItem from="1575986194586" duration="18073000" />
+      <workItem from="1575986194586" duration="20534000" />
     </task>
     <servers />
   </component>
@@ -912,16 +909,16 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18073000" />
+    <option name="totallyTimeSpent" value="20534000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="24" width="1440" height="803" extended-state="6" />
+    <frame x="1536" y="38" width="1440" height="803" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31688127" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21244635" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
@@ -981,13 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-839">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-231">
@@ -1028,8 +1018,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="146" column="14" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="152" selection-end-column="15" />
+        <state relative-caret-position="111">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="47" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
         </state>
       </provider>
     </entry>
