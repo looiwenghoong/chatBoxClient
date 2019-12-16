@@ -6,15 +6,11 @@ import java.util.*;
 
 public class Connection implements Runnable {
 
-    final static int STATE_UNREGISTERED = 0;
-
     private volatile boolean running;
     private String username;
     private static String usernameList = "USERNAMElist:%CoNcAt%Group Chat";
     private static String connectionList = "CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0";
     String concatPattern = "%CoNcAt%";
-    private int messageCount;
-    private int state;
     private Socket client;
     private ChatServer serverReference;
     private BufferedReader readerIn;
@@ -29,7 +25,6 @@ public class Connection implements Runnable {
         this.client = client;
         this.dis = dis;
         this.dos = dos;
-        messageCount = 0;
     }
 
     public void run(){
