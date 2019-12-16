@@ -12,7 +12,7 @@ public class Connection implements Runnable {
     private static String connectionList = "CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0";
     String concatPattern = "%CoNcAt%";
     private Socket client;
-    private ChatServer serverReference;
+    public ChatServer serverReference;
     private BufferedReader readerIn;
     private PrintWriter printOutWriter;
     private DataInputStream dis;
@@ -174,14 +174,28 @@ public class Connection implements Runnable {
     }
 
     public void broadcastConnectionIDToClient() {
-        String header = "CONNECTIONid:";
-        header = header + serverReference.getConnectionID().toString();
-        printOutWriter.println(header);
+        try {
+            String header = "CONNECTIONid:";
+            header = header + serverReference.getConnectionID().toString();
+            printOutWriter.println(header);
+        } catch (Exception e) {
+            throw e;
+        }
+
     }
 
 
     public void sendMessages(String message) {
         printOutWriter.println(message);
     }
+
+    public ArrayList<String> getUsernameArrayList () {
+        return usernameArrayList;
+    }
+
+    public ArrayList<String> getConnectionArrayList () {
+        return connectionArrayList;
+    }
+
 
 }

@@ -1,8 +1,8 @@
 package chatBoxServer;
 
 import org.junit.Test;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -229,6 +229,43 @@ public class ChatServerTest {
             }
         } catch (Exception e) {
             fail("Error");
+        }
+    }
+
+    /**
+     * Test broadcast function
+     */
+    @Test
+    public void testBroadcast() {
+        int port = 9010;
+        String header = "CONNECTIONid:";
+        try {
+            ChatServer server = new ChatServer(port);
+
+            Socket clientSocket1 = new Socket("127.0.0.1", port);
+            server.onServerRunning();
+            Connection c1 = server.getConnectionID();
+
+            Socket clientSocket2 = new Socket("127.0.0.1", port);
+            server.onServerRunning();
+            Connection c2 = server.getConnectionID();
+
+            InputStream inputStream = clientSocket1.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+            String response  = reader.readLine();
+
+            inputStream = clientSocket2.getInputStream();
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            String response2  = reader.readLine();
+
+            if(response.matches(header+c1.toString()) && response2.matches(header+c2.toString())) {
+                assertTrue("Matching output", true);
+            } else {
+                fail("Not matching output");
+            }
+        } catch (Exception e) {
+            fail("Unable to create Connection");
         }
     }
 }

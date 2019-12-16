@@ -36,4 +36,72 @@ public class ConnectionTest {
             fail("Exception caught");
         }
     }
+
+    /**
+     * Testing on broadcastConnectionIDToClient()
+     */
+    @Test(expected = Test.None.class)
+    public void testBroadcastConnectionIDToClient() {
+        int port = 8002;
+        try {
+            // Create connection in ChatServer
+            ChatServer server = new ChatServer(port);
+            Socket clientSocket = new Socket("127.0.0.1", port);
+            server.onServerRunning();
+
+            // get the connection instance
+            Connection c = server.getConnectionID();
+
+            /**
+             * Testing on broadcastConnectionIDToClient()
+             */
+            c.broadcastConnectionIDToClient();
+        }catch (Exception e) {
+            fail("Exception caught");
+        }
+    }
+
+//    @Test
+//    public void testRemoveConnection() {
+//        int port = 8003;
+//        try {
+//            // Create connection in ChatServer
+//            ChatServer server = new ChatServer(port);
+//            Socket clientSocket = new Socket("127.0.0.1", port);
+//            server.onServerRunning();
+//
+//            // get the connection instance
+//            Connection c = server.getConnectionID();
+//
+//
+//        }catch (Exception e) {
+//            fail("Exception caught");
+//        }
+//    }
+
+
+    /**
+     * Test getNumberOfUsers()
+     * Test case with one connection generated
+     * If the output matches only one connection then test case is valid
+     */
+    @Test
+    public void testGetNumberOfUsers() {
+        int port = 8004;
+        try {
+            // Create connection in ChatServer
+            ChatServer server = new ChatServer(port);
+            Socket clientSocket = new Socket("127.0.0.1", port);
+            server.onServerRunning();
+
+            // get the connection instance
+            Connection c = server.getConnectionID();
+
+            String getNumberOfUsersString = c.getNumberOfUsers();
+
+            assertTrue("String matches", getNumberOfUsersString.matches("Currently 1 users online."));
+        }catch (Exception e) {
+            fail("Exception caught");
+        }
+    }
 }

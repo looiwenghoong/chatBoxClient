@@ -85,6 +85,7 @@ public class ChatServer {
         for(int i = 0; i< list.size(); i++) {
             clientThread = list.get(i);
             if(clientThread.toString().matches(selfClient) || clientThread.toString().matches(targetClient)) {
+                System.out.println("YEs");
                 clientThread.sendMessages(message);
             }
         }
