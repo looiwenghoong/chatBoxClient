@@ -196,6 +196,4 @@ public class Connection implements Runnable {
     public ArrayList<String> getConnectionArrayList () {
         return connectionArrayList;
     }
-
-
 }

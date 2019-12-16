@@ -64,25 +64,6 @@ public class ConnectionTest {
         }
     }
 
-//    @Test
-//    public void testRemoveConnection() {
-//        int port = 8003;
-//        try {
-//            // Create connection in ChatServer
-//            ChatServer server = new ChatServer(port);
-//            Socket clientSocket = new Socket("127.0.0.1", port);
-//            server.onServerRunning();
-//
-//            // get the connection instance
-//            Connection c = server.getConnectionID();
-//
-//
-//        }catch (Exception e) {
-//            fail("Exception caught");
-//        }
-//    }
-
-
     /**
      * Test getNumberOfUsers()
      * Test case with one connection generated
@@ -169,6 +150,7 @@ public class ConnectionTest {
             // Create client socket 1
             // Create connection 1
             Socket clientSocket1 = new Socket("127.0.0.1", 8006);
+
             try {
                 ObjectOutputStream oos = new ObjectOutputStream(clientSocket1.getOutputStream());
                 oos.writeObject(usernameList);
@@ -194,5 +176,4 @@ public class ConnectionTest {
             fail("Exception caught");
         }
     }
-
 }
