@@ -21,7 +21,10 @@ public class ChatServer {
 
     public static void main(String args[]) {
         chatServer = new ChatServer(port);
-        chatServer.onServerRunning();
+        while(true) {
+            chatServer.onServerRunning();
+        }
+
     }
 
     public ChatServer (int port) {
@@ -29,20 +32,23 @@ public class ChatServer {
             server = new ServerSocket(port);
             System.out.println("Server has been initialised on port " + port);
         }
-        catch (Exception e) {
+        catch (NullPointerException e) {
             System.err.println("error initialising server");
+            throw e;
+        }
+        catch (IOException f) {
+            System.err.println("error initialising server");
+            throw new RuntimeException("IO Exception in the Application",f);
         }
     }
 
-    private void onServerRunning() {
+    public void onServerRunning() {
         list = new ArrayList<>();
-        while(true) {
-            try {
-                s = server.accept();
-                createConnection(s);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+        try {
+            s = server.accept();
+            createConnection(s);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -53,6 +59,7 @@ public class ChatServer {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             c = new Connection(s, this, dis, dos);
+            System.out.println(c + "Created");
             addNewConnectionToList(c);
 
             Thread t = new Thread(c);

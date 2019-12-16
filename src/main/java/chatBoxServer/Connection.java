@@ -117,8 +117,6 @@ public class Connection implements Runnable {
 
     public void removeConnection() {
         Connection connectionID = this;
-        String usernameToRemove = concatPattern + username;
-        String connectionToRemove = concatPattern + connectionID.toString();
         String newUsernameList = "USERNAMElist:%CoNcAt%Group Chat";
         String newConnectionList = "CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0";
 
@@ -126,14 +124,17 @@ public class Connection implements Runnable {
 
         int indexToRemove = 0;
 
+        // Loop through connection array to find which connection and username to remove
         for (int i = 0; i < connectionArrayList.size(); i++) {
             if(connectionArrayList.get(i).matches(connectionID.toString())){
                 connectionArrayList.remove(i);
                 indexToRemove = i;
                 usernameArrayList.remove(i);
+                serverReference.removeConnection(connectionID);
             }
         }
 
+        // Remove the username from the concatenated string
         String[] removeHeader = usernameList.split("USERNAMElist:%CoNcAt%Group Chat");
         removeHeader = removeHeader[1].split(concatPattern);
         System.out.println(removeHeader);
@@ -147,6 +148,7 @@ public class Connection implements Runnable {
 
         usernameList = newUsernameList;
 
+        // Remove the connection from the concatenated string
         removeHeader = connectionList.split("CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0");
         removeHeader = removeHeader[1].split(concatPattern);
         list = Arrays.asList(removeHeader);
@@ -159,12 +161,14 @@ public class Connection implements Runnable {
 
         connectionList = newConnectionList;
 
-        for(int i = 0; i< usernameArrayList.size(); i++) {
-            System.out.println("Name: " + usernameArrayList.get(i) + " connectionid: " + connectionArrayList.get(i));
-        }
-        System.out.println(usernameList + "\n");
-        System.out.println(connectionList + "\n");
+//        for(int i = 0; i< usernameArrayList.size(); i++) {
+//            System.out.println("Name: " + usernameArrayList.get(i) + " connectionid: " + connectionArrayList.get(i));
+//        }
+//        System.out.println(usernameList + "\n");
+//        System.out.println(connectionList + "\n");
 
+        // If there is no connection to the server then exit the server
+        // else send the updated online user to every client.
         if(serverReference.getNumberOfUsers() == 0){
             System.out.println("Exit the server.");
             System.exit(-1);

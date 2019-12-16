@@ -21,11 +21,41 @@ public class ChatServerTest {
     public void initChatServer() {
         int port = 9000;
         try{
-           ServerSocket server = new ServerSocket(port);
+            ChatServer server = new ChatServer(port);
         } catch (Exception e) {
-           fail("Action of creating new server socket with same port is prohibited");
+            fail("Action of creating new server socket with same port is prohibited");
         }
     }
+
+
+    // Test createConnection function
+    @Test
+    public void testCreateConnectionSuccess() {
+        int port = 9001;
+        try {
+            ChatServer server = new ChatServer(port);
+            Socket clientSocket = new Socket("127.0.0.1", port);
+            server.onServerRunning();
+        } catch (Exception e) {
+            fail("Unable to create Connection");
+        }
+    }
+
+    // Test init the 2 servers with the same port
+    // Test case will pass if any exception is caught
+    // Test case will fail if there is no exception caught
+    @Test
+    public void testCreateConnectionFailed() {
+        int port = 9002;
+        try {
+            ChatServer server = new ChatServer(port);
+            server = new ChatServer(port);
+            fail("Should not be able to re-init the server with the same port again");
+        } catch (Exception e) {
+            assertTrue("This should be a failed operation", true);
+        }
+    }
+
 //    @Test
 //    public void testAbleToCreateConnection() {
 //        int port = 9000;
