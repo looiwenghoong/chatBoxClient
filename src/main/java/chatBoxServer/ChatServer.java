@@ -14,7 +14,7 @@ public class ChatServer {
     final static int port = 9000;
 
     private ServerSocket server;
-    public ArrayList<Connection> list;
+    public ArrayList<Connection> list = new ArrayList<>();
     private Socket s;
     private Connection c = null;
 
@@ -43,7 +43,7 @@ public class ChatServer {
     }
 
     public void onServerRunning() {
-        list = new ArrayList<>();
+
         try {
             s = server.accept();
             createConnection(s);
@@ -104,5 +104,9 @@ public class ChatServer {
 
     public void removeConnection(Connection connectionID) {
         list.remove(connectionID);
+    }
+
+    public ArrayList<Connection> getConnectionList() {
+        return list;
     }
 }
