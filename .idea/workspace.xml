@@ -141,8 +141,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="265">
-                  <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+                <state relative-caret-position="155">
+                  <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -154,7 +154,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ConnectionTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="453">
-                  <caret line="177" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="177" selection-end-column="5" />
+                  <caret line="177" column="5" selection-start-line="16" selection-start-column="4" selection-end-line="177" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -166,7 +166,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="196">
-                  <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
+                  <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -780,7 +780,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ChatClientTest">
+  <component name="RunManager" selected="Gradle.clientChat [build]">
     <configuration name="clientChat [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -793,6 +793,24 @@
         <option name="taskNames">
           <list>
             <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="clientChat [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -845,34 +863,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ConnectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="clientChat_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="chatBoxServer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="chatBoxServer" />
-      <option name="MAIN_CLASS_NAME" value="chatBoxServer.ConnectionTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.ChatServerTest" />
-      <item itemvalue="JUnit.ConnectionTest" />
       <item itemvalue="Gradle.clientChat [jar]" />
       <item itemvalue="JUnit.ChatClientTest" />
       <item itemvalue="Gradle.clientChat [build]" />
+      <item itemvalue="Gradle.clientChat [clean]" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.clientChat [clean]" />
         <item itemvalue="JUnit.ChatClientTest" />
         <item itemvalue="JUnit.ChatServerTest" />
         <item itemvalue="Gradle.clientChat [build]" />
         <item itemvalue="Gradle.clientChat [jar]" />
-        <item itemvalue="JUnit.ConnectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -891,7 +895,7 @@
       <workItem from="1576158494953" duration="37000" />
       <workItem from="1576458498914" duration="9772000" />
       <workItem from="1576496781736" duration="16535000" />
-      <workItem from="1576549229578" duration="6303000" />
+      <workItem from="1576549229578" duration="6476000" />
     </task>
     <servers />
   </component>
@@ -928,7 +932,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53692000" />
+    <option name="totallyTimeSpent" value="53865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -950,13 +954,13 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35302392" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35302392" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32911393" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.28270042" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28270042" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.32911393" />
@@ -965,7 +969,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Gradle" order="4" weight="0.16880617" />
+      <window_info anchor="right" id="Gradle" order="4" visible="true" weight="0.16880617" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
@@ -1017,7 +1021,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ConnectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
-          <caret line="177" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="177" selection-end-column="5" />
+          <caret line="177" column="5" selection-start-line="16" selection-start-column="4" selection-end-line="177" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1037,7 +1041,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1075,8 +1079,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+        <state relative-caret-position="155">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

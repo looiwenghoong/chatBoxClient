@@ -32,7 +32,7 @@ public class ChatClientTest {
         }
     }
 
-    @Test(expected = Test.None.class)
+    @Test
     public void testWriteUsernameToServer () {
         ArrayList<String> clientName;
         try {
