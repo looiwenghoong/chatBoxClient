@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="clientchatui.ChatClientTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2019-12-17T09:56:07" hostname="looiwenghoongs-MacBook-Pro.local" time="0.063">
+<testsuite name="clientchatui.ChatClientTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-12-17T11:05:57" hostname="looiwenghoongs-MacBook-Pro.local" time="0.062">
   <properties/>
-  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.058"/>
+  <testcase name="testDecodeMessage" classname="clientchatui.ChatClientTest" time="0.037"/>
+  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.015"/>
   <testcase name="testInitReadThread" classname="clientchatui.ChatClientTest" time="0.001"/>
-  <testcase name="testUpdateHashMap" classname="clientchatui.ChatClientTest" time="0.001"/>
-  <testcase name="testInitChatClient" classname="clientchatui.ChatClientTest" time="0.001"/>
-  <system-out><![CDATA[Connected to server at port 1001
+  <testcase name="testUpdateHashMap" classname="clientchatui.ChatClientTest" time="0.003"/>
+  <testcase name="testInitChatClient" classname="clientchatui.ChatClientTest" time="0.003"/>
+  <system-out><![CDATA[Connected to server at port 1004
+Connected to server at port 1001
+java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+Client left: null
+Client left: null
+[Ljava.lang.String;@39e24108
+[Ljava.lang.String;@6bd2857a
+Client left: null
+[Ljava.lang.String;@ff8fb8b
+java.net.SocketException: Connection reset
+Client left: null
 Connected to server at port 1002
 Connected to server at port 1003
-2
 Unable to connect to server
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[Exception in thread "Thread-5" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 0
+	at chatBoxServer.Connection.removeConnection(Connection.java:134)
+	at chatBoxServer.Connection.run(Connection.java:45)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+]]></system-err>
 </testsuite>

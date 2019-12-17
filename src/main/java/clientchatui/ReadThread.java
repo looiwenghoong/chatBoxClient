@@ -62,8 +62,10 @@ public class ReadThread implements Runnable {
                         }
 
                         updateHashMap();
-                        controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
-                        controller.setMsgHashMap(userHashMap);
+                        if(controller != null) {
+                            controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+                            controller.setMsgHashMap(userHashMap);
+                        }
                     }
                 } else {
                     decodeMessage(response);
@@ -123,30 +125,36 @@ public class ReadThread implements Runnable {
 
     public void decodeMessage(String response) {
         String msgHeader;
-        String msgBody;
         String targetClient;
         String selfClient;
         ArrayList<String> msgList;
         if(response.startsWith("grp->MSGheaderFromCLIENT:")){
+//            Set set = userHashMap.entrySet();
+//            Iterator iterator = set.iterator();
+//            while(iterator.hasNext()) {
+//                Map.Entry mentry = (Map.Entry)iterator.next();
+//                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
+//                System.out.println(mentry.getValue());
+//            }
+
             String[] removeHeader = response.split("(grp->MSGheaderFromCLIENT:)");
             removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
             msgHeader = removeHeader[0];
-            msgBody = removeHeader[1];
 
             removeHeader = msgHeader.split("(==>)");
-            selfClient = removeHeader[0];
             targetClient = removeHeader[1];
 
             msgList = userHashMap.get(targetClient);
             msgList.add(response);
             userHashMap.put(targetClient, msgList);
 
-            controller.setMsgHashMap(userHashMap);
+            if(controller != null) {
+                controller.setMsgHashMap(userHashMap);
+            }
         } else if(response.startsWith("pm->MSGheaderFromCLIENT:")) {
             String[] removeHeader = response.split("(pm->MSGheaderFromCLIENT:)");
             removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
             msgHeader = removeHeader[0];
-            msgBody = removeHeader[1];
 
             removeHeader = msgHeader.split("(==>)");
             selfClient = removeHeader[0];
@@ -161,7 +169,10 @@ public class ReadThread implements Runnable {
                 msgList.add(response);
                 userHashMap.put(targetClient, msgList);
             }
-            controller.setMsgHashMap(userHashMap);
+
+            if(controller != null) {
+                controller.setMsgHashMap(userHashMap);
+            }
         }
     }
 

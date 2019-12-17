@@ -101,7 +101,6 @@ public class ChatClientTest {
             readThread.setNameOutput(nameOutput);
             readThread.setConnectionOutput(connectionOutput);
             readThread.setUserHashMap(userHashMap);
-            readThread.print();
 
             readThread.updateHashMap();
             HashMap<String, ArrayList<String>> userHashMapTest = readThread.getUserHashMap();
@@ -122,6 +121,50 @@ public class ChatClientTest {
 //                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
 //                System.out.println(mentry.getValue());
             }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDecodeMessage() {
+        String connection1 = "Connection1";
+        String connection2 = "Connection2";
+        HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
+        userHashMap.put("Connection1", new ArrayList<>());
+        userHashMap.put("Connection2", new ArrayList<>());
+        String message = "grp->MSGheaderFromCLIENT:"+connection1+"==>"+connection2+"MSGbodyFromCLIENT:Hello World";
+
+        try {
+            // Create custom server socket
+            ServerSocket serverSocket = new ServerSocket(1004);
+
+            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlURL);
+            FXMLDocumentController controller = loader.getController();
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1004);
+            Socket socket = chatClient.getSocket();
+            ReadThread readThread = new ReadThread(socket, chatClient, controller);
+
+            readThread.setUserHashMap(userHashMap);
+            readThread.decodeMessage(message);
+
+            HashMap<String, ArrayList<String>> userHashMapTest = readThread.getUserHashMap();
+
+            ArrayList<String> msgList = userHashMapTest.get(connection2);
+            if(msgList.get(0).matches(message)) {
+                assertTrue("Input output matching", true);
+            } else {
+                fail("Input Output Mismatch");
+            }
+//            Set set = userHashMapTest.entrySet();
+//            Iterator iterator = set.iterator();
+//            while(iterator.hasNext()) {
+//                Map.Entry mentry = (Map.Entry)iterator.next();
+//                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
+//                System.out.println(mentry.getValue());
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
