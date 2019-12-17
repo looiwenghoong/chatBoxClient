@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chatBoxServer.ChatServerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-12-17T02:39:42" hostname="looiwenghoongs-MacBook-Pro.local" time="0.019">
+<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:04:30" hostname="looiwenghoongs-MacBook-Pro.local" time="0.009">
   <properties/>
-  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.003"/>
-  <testcase name="testCreateConnectionFailed" classname="chatBoxServer.ChatServerTest" time="0.002"/>
-  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.001"/>
   <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.002"/>
-  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.004"/>
+  <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.0"/>
+  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.002"/>
   <system-out><![CDATA[Server has been initialised on port 9008
-Server has been initialised on port 9002
 Server has been initialised on port 9005
-chatBoxServer.Connection@55f2060eCreated
-chatBoxServer.Connection@55f2060e connected to the server
+chatBoxServer.Connection@53c6db67Created
+chatBoxServer.Connection@53c6db67 connected to the server
 Adding new Client to active client list
 Server has been initialised on port 9006
 Server has been initialised on port 9100
 Server has been initialised on port 9003
-Server has been initialised on port 9001
-chatBoxServer.Connection@b8568a6Created
-chatBoxServer.Connection@b8568a6 connected to the server
+Server has been initialised on port 9101
+chatBoxServer.Connection@3f694bafCreated
+chatBoxServer.Connection@3f694baf connected to the server
 Adding new Client to active client list
 ]]></system-out>
-  <system-err><![CDATA[error initialising server
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

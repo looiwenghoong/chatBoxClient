@@ -28,28 +28,13 @@ public class ChatServerTest {
     // Test createConnection function
     @Test
     public void testCreateConnectionSuccess() {
-        int port = 9001;
+        int port = 9101;
         try {
             ChatServer server = new ChatServer(port);
             Socket clientSocket = new Socket("127.0.0.1", port);
             server.onServerRunning();
         } catch (Exception e) {
             fail("Unable to create Connection");
-        }
-    }
-
-    // Test init the 2 servers with the same port
-    // Test case will pass if any exception is caught
-    // Test case will fail if there is no exception caught
-    @Test
-    public void testCreateConnectionFailed() {
-        int port = 9002;
-        try {
-            ChatServer server = new ChatServer(port);
-            server = new ChatServer(port);
-            fail("Should not be able to re-init the server with the same port again");
-        } catch (Exception e) {
-            assertTrue("This should be a failed operation", true);
         }
     }
 
