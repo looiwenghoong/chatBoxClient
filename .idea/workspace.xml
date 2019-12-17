@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2035d5c5-8e26-405f-ac4c-76d2f51176ce" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -141,8 +140,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="155">
-                  <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+                <state relative-caret-position="298">
+                  <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -780,7 +779,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.clientChat [build]">
+  <component name="RunManager" selected="JUnit.ChatClientTest">
     <configuration name="clientChat [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -872,8 +871,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.clientChat [clean]" />
         <item itemvalue="JUnit.ChatClientTest" />
+        <item itemvalue="Gradle.clientChat [clean]" />
         <item itemvalue="JUnit.ChatServerTest" />
         <item itemvalue="Gradle.clientChat [build]" />
         <item itemvalue="Gradle.clientChat [jar]" />
@@ -895,7 +894,7 @@
       <workItem from="1576158494953" duration="37000" />
       <workItem from="1576458498914" duration="9772000" />
       <workItem from="1576496781736" duration="16535000" />
-      <workItem from="1576549229578" duration="6476000" />
+      <workItem from="1576549229578" duration="6591000" />
     </task>
     <servers />
   </component>
@@ -932,7 +931,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53865000" />
+    <option name="totallyTimeSpent" value="53980000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1079,8 +1078,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="298">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

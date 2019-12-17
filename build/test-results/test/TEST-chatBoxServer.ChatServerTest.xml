@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:12:32" hostname="looiwenghoongs-MacBook-Pro.local" time="0.018">
+<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:17:24" hostname="looiwenghoongs-MacBook-Pro.local" time="0.014">
   <properties/>
-  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.002"/>
-  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.003"/>
-  <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.003"/>
   <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.002"/>
-  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.004"/>
+  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.002"/>
   <system-out><![CDATA[Server has been initialised on port 9008
 Server has been initialised on port 9005
-chatBoxServer.Connection@63bdeae7Created
-chatBoxServer.Connection@63bdeae7 connected to the server
+chatBoxServer.Connection@1555673Created
+chatBoxServer.Connection@1555673 connected to the server
 Adding new Client to active client list
 Server has been initialised on port 9006
 Server has been initialised on port 9100
 Server has been initialised on port 9003
 Server has been initialised on port 9101
-chatBoxServer.Connection@2e45e4b1Created
-chatBoxServer.Connection@2e45e4b1 connected to the server
+chatBoxServer.Connection@76ddcbeaCreated
+chatBoxServer.Connection@76ddcbea connected to the server
 Adding new Client to active client list
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="clientchatui.ChatClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:12:32" hostname="looiwenghoongs-MacBook-Pro.local" time="0.031">
+<testsuite name="clientchatui.ChatClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:17:24" hostname="looiwenghoongs-MacBook-Pro.local" time="0.054">
   <properties/>
-  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.029"/>
+  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.052"/>
   <testcase name="testInitChatClient" classname="clientchatui.ChatClientTest" time="0.002"/>
-  <system-out><![CDATA[Connected to server at port 1001
+  <system-out><![CDATA[java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
+Client left: null
+Client left: null
+Client left: null
+[Ljava.lang.String;@30f62434
+[Ljava.lang.String;@23375c86
+[Ljava.lang.String;@26a7ba3f
+java.net.SocketException: Connection reset
+Client left: null
+[Ljava.lang.String;@3540f28a
+Connected to server at port 1001
 Unable to connect to server
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
