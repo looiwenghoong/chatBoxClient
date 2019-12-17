@@ -8,8 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.WindowEvent;
 import org.junit.Test;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
@@ -21,10 +20,7 @@ public class ChatClientTest {
     @Test
     public void testInitChatClient() {
         try {
-            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
-            FXMLLoader loader = new FXMLLoader(fxmlURL);
-            FXMLDocumentController controller = loader.getController();
-            ChatClient chatClient = new ChatClient("127.0.0.1", 900, "user1", controller);
+            ChatClient chatClient = new ChatClient("127.0.0.1", 900);
 
             assertTrue("ChatClient instance created", chatClient instanceof ChatClient);
         } catch (Exception e) {
@@ -42,7 +38,8 @@ public class ChatClientTest {
             URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
             FXMLLoader loader = new FXMLLoader(fxmlURL);
             FXMLDocumentController controller = loader.getController();
-            ChatClient chatClient = new ChatClient("127.0.0.1", 1001, "User1", controller);
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1001);
+            chatClient.startReadWrite("User1", controller);
 
             Socket s = serverSocket.accept();
             ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
@@ -61,7 +58,21 @@ public class ChatClientTest {
     }
 
     @Test
-    public void testWriteMessage() {
+    public void testInitReadThread() {
+        try {
+            // Create custom server socket
+            ServerSocket serverSocket = new ServerSocket(1002);
 
+            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlURL);
+            FXMLDocumentController controller = loader.getController();
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1002);
+            Socket socket = chatClient.getSocket();
+            ReadThread readThread = new ReadThread(socket, chatClient, controller);
+
+            assertTrue("Read Thread created", readThread instanceof ReadThread);
+        }catch (Exception e) {
+            fail("Exception");
+        }
     }
 }

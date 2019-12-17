@@ -20,16 +20,11 @@ public class ChatClient {
     public ReadThread readThread;
     private ChatServer server = null;
 
-    public ChatClient (String address, int port, String loginUsername, FXMLDocumentController controller) {
+
+    public ChatClient (String address, int port) {
         try {
             socket = new Socket(address, port);
             System.out.println("Connected to server at port " + port);
-
-            writeUsernameToServer(loginUsername);
-            // Thread to listen to incoming messages
-            readThread = new ReadThread(socket, this, controller);
-            Thread t = new Thread(readThread);
-            t.start();
         } catch (UnknownHostException u) {
             System.out.println("Unable to connect to server");
 //            throw new RuntimeException("Unknown Host Exception in the Application",u);
@@ -37,6 +32,14 @@ public class ChatClient {
             System.out.println("Unable to connect to server");
 //            throw new RuntimeException("IO Exception in the Application",e);
         }
+    }
+
+    public void startReadWrite(String loginUsername, FXMLDocumentController controller) {
+        writeUsernameToServer(loginUsername);
+        // Thread to listen to incoming messages
+        readThread = new ReadThread(socket, this, controller);
+        Thread t = new Thread(readThread);
+        t.start();
     }
 
     public void writeUsernameToServer(String username) {
@@ -61,5 +64,9 @@ public class ChatClient {
                 System.out.println(e);
             }
         }
+    }
+
+    public Socket getSocket() {
+        return socket;
     }
 }

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2035d5c5-8e26-405f-ac4c-76d2f51176ce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,6 +19,9 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/clientChat$ChatServerTest.ic" NAME="ChatServerTest Coverage Results" MODIFIED="1576514088137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>chatBoxServer.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/clientChat$ChatClientTest.ic" NAME="ChatClientTest Coverage Results" MODIFIED="1576563743175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>clientchatui.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/clientChat$ConnectionTest.ic" NAME="ConnectionTest Coverage Results" MODIFIED="1576515203513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>chatBoxServer.*</FILTER>
@@ -84,7 +89,7 @@
         <counts>
           <entry key="fxml" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="18" />
+          <entry key="java" value="20" />
           <entry key="properties" value="1" />
           <entry key="xml" value="1" />
         </counts>
@@ -92,7 +97,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="20" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="2" />
         </counts>
@@ -101,48 +106,27 @@
         <counts>
           <entry key="fxml" value="42" />
           <entry key="gradle" value="234" />
-          <entry key="java" value="10640" />
+          <entry key="java" value="11164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="234" />
-          <entry key="JAVA" value="10640" />
+          <entry key="JAVA" value="11164" />
           <entry key="XML" value="42" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5393891">
+    <splitter split-orientation="horizontal" split-proportion="0.5080386">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="43">
-                  <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="450">
-                  <caret line="50" column="44" selection-start-line="34" selection-start-column="8" selection-end-line="50" selection-end-column="44" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="410">
-                  <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+                <state relative-caret-position="333">
+                  <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -165,8 +149,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="196">
+                <state relative-caret-position="-484">
                   <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="273">
+                  <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -181,7 +177,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/ChatServer.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
+                <state relative-caret-position="-509">
                   <caret line="40" column="76" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="76" />
                   <folding>
                     <element signature="e#2973#2974#0" expanded="true" />
@@ -194,8 +190,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="377">
-                  <caret line="76" column="11" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="37" />
+                <state relative-caret-position="225">
+                  <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
                   <folding>
                     <element signature="e#7078#7079#0" expanded="true" />
                     <element signature="e#7125#7126#0" expanded="true" />
@@ -207,8 +203,21 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-10">
-                  <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="31" selection-end-column="22" />
+                <state relative-caret-position="599">
+                  <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#2195#2196#0" expanded="true" />
+                    <element signature="e#2223#2224#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="21">
+                  <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
                 </state>
               </provider>
             </entry>
@@ -645,10 +654,10 @@
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/FXMLDocumentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatBoxServer/ChatServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java" />
-        <option value="$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java" />
         <option value="$PROJECT_DIR$/src/test/java/chatBoxServer/ConnectionTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java" />
         <option value="$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java" />
       </list>
@@ -780,7 +789,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.clientChat [build]">
+  <component name="RunManager" selected="JUnit.ChatClientTest">
     <configuration name="clientChat [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -895,44 +904,44 @@
       <workItem from="1576158494953" duration="37000" />
       <workItem from="1576458498914" duration="9772000" />
       <workItem from="1576496781736" duration="16535000" />
-      <workItem from="1576549229578" duration="7383000" />
+      <workItem from="1576549229578" duration="11207000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 00m 31s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 27m 28s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 02m 49s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 29m 52s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 03m 22s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 33m 20s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 03m 58s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 33m 51s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 04m 26s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 37m 55s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 09m 00s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 38m 22s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 10m 52s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 43m 06s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 11m 39s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 43m 13s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 17m 21s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 48m 59s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="ChatClientTest - 2019.12.17 at 13h 25m 59s.xml">
+    <history-entry file="ChatClientTest - 2019.12.17 at 14h 52m 57s.xml">
       <configuration name="ChatClientTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54772000" />
+    <option name="totallyTimeSpent" value="58596000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -954,13 +963,13 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35302392" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35302392" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32911393" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.28270042" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.28270042" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="11" weight="0.32911393" />
@@ -969,7 +978,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Gradle" order="4" visible="true" weight="0.16880617" />
+      <window_info anchor="right" id="Gradle" order="4" weight="0.16880617" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
@@ -1011,13 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ConnectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="453">
@@ -1028,29 +1030,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="50" column="44" selection-start-line="34" selection-start-column="8" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/ChatServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="-509">
           <caret line="40" column="76" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="76" />
           <folding>
             <element signature="e#2973#2974#0" expanded="true" />
@@ -1061,8 +1043,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatBoxServer/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="76" column="11" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="37" />
+        <state relative-caret-position="225">
+          <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding>
             <element signature="e#7078#7079#0" expanded="true" />
             <element signature="e#7125#7126#0" expanded="true" />
@@ -1070,17 +1052,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ReadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="17" column="77" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/chatBoxServer/ChatServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-484">
+          <caret line="47" column="12" selection-start-line="47" selection-start-column="12" selection-end-line="53" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ClientChatUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="56" column="53" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/clientchatui/ChatClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="31" selection-end-column="22" />
+        <state relative-caret-position="599">
+          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+          <folding>
+            <element signature="e#2195#2196#0" expanded="true" />
+            <element signature="e#2223#2224#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/clientchatui/ChatClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
+        <state relative-caret-position="273">
+          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
