@@ -47,6 +47,7 @@ public class ChatClient {
             oos.writeObject(usernameList);
         } catch (Exception e) {
             System.out.println(e);
+            throw new RuntimeException("IO Exception", e);
         }
     }
 
