@@ -192,6 +192,10 @@ public class ReadThread implements Runnable {
         return userHashMap;
     }
 
+    public void setConnectionID(String connectionID) {
+        this.connectionID = connectionID;
+    }
+
     public void print() {
         System.out.println(nameOutput.size());
     }

@@ -1,13 +1,8 @@
 package clientchatui;
 
-import chatBoxServer.ChatServer;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.WindowEvent;
-import org.junit.Test;
 
+import javafx.fxml.FXMLLoader;
+import org.junit.Test;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -128,7 +123,7 @@ public class ChatClientTest {
     }
 
     @Test
-    public void testDecodeMessage() {
+    public void testDecodeGroupMessage() {
         String connection1 = "Connection1";
         String connection2 = "Connection2";
         HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
@@ -158,6 +153,44 @@ public class ChatClientTest {
             } else {
                 fail("Input Output Mismatch");
             }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testDecodePrivateMessageClient1() {
+        String connection1 = "Connection1";
+        String connection2 = "Connection2";
+        HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
+        userHashMap.put("Connection1", new ArrayList<>());
+        userHashMap.put("Connection2", new ArrayList<>());
+        String message = "pm->MSGheaderFromCLIENT:"+connection1+"==>"+connection2+"MSGbodyFromCLIENT:Hello World";
+
+        try {
+            // Create custom server socket
+            ServerSocket serverSocket = new ServerSocket(1005);
+
+            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlURL);
+            FXMLDocumentController controller = loader.getController();
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1005);
+            Socket socket = chatClient.getSocket();
+            ReadThread readThread = new ReadThread(socket, chatClient, controller);
+
+            readThread.setConnectionID(connection2);
+            readThread.setUserHashMap(userHashMap);
+            readThread.decodeMessage(message);
+
+            HashMap<String, ArrayList<String>> userHashMapTest = readThread.getUserHashMap();
+
+            ArrayList<String> msgList1 = userHashMapTest.get(connection1);
+            if(msgList1.get(0).matches(message)) {
+                assertTrue("Input output matching", true);
+            } else {
+                fail("Input Output Mismatch");
+            }
 //            Set set = userHashMapTest.entrySet();
 //            Iterator iterator = set.iterator();
 //            while(iterator.hasNext()) {
@@ -165,6 +198,45 @@ public class ChatClientTest {
 //                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
 //                System.out.println(mentry.getValue());
 //            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testDecodePrivateMessageClient2() {
+        String connection1 = "Connection1";
+        String connection2 = "Connection2";
+        HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
+        userHashMap.put("Connection1", new ArrayList<>());
+        userHashMap.put("Connection2", new ArrayList<>());
+        String message = "pm->MSGheaderFromCLIENT:"+connection1+"==>"+connection2+"MSGbodyFromCLIENT:Hello World";
+
+        try {
+            // Create custom server socket
+            ServerSocket serverSocket = new ServerSocket(1006);
+
+            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlURL);
+            FXMLDocumentController controller = loader.getController();
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1006);
+            Socket socket = chatClient.getSocket();
+            ReadThread readThread = new ReadThread(socket, chatClient, controller);
+
+            readThread.setConnectionID(connection1);
+            readThread.setUserHashMap(userHashMap);
+            readThread.decodeMessage(message);
+
+            HashMap<String, ArrayList<String>> userHashMapTest = readThread.getUserHashMap();
+
+            ArrayList<String> msgList2 = userHashMapTest.get(connection2);
+            if(msgList2.get(0).matches(message)) {
+                assertTrue("Input output matching", true);
+            } else {
+                fail("Input Output Mismatch");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
