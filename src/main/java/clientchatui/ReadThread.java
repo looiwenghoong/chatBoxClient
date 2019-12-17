@@ -45,7 +45,6 @@ public class ReadThread implements Runnable {
                         String[] removeHeader = response.split("(USERNAMElist:)");
                         nameOutput = Arrays.asList(removeHeader[1].split(concatPattern));
                     } else if(response.startsWith("CONNECTIONid:")) {
-//                        System.out.println(response);
                         String[] removeHeader = response.split("(CONNECTIONid:)");
                         connectionID = removeHeader[1];
                     } else {
@@ -142,13 +141,6 @@ public class ReadThread implements Runnable {
             msgList.add(response);
             userHashMap.put(targetClient, msgList);
 
-//            Set set = userHashMap.entrySet();
-//            Iterator iterator = set.iterator();
-//            while(iterator.hasNext()) {
-//                Map.Entry mentry = (Map.Entry)iterator.next();
-//                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
-//                System.out.println(mentry.getValue());
-//            }
             controller.setMsgHashMap(userHashMap);
         } else if(response.startsWith("pm->MSGheaderFromCLIENT:")) {
             String[] removeHeader = response.split("(pm->MSGheaderFromCLIENT:)");
@@ -171,5 +163,25 @@ public class ReadThread implements Runnable {
             }
             controller.setMsgHashMap(userHashMap);
         }
+    }
+
+    public void setConnectionOutput(List<String> connectionOutput) {
+        this.connectionOutput = connectionOutput;
+    }
+
+    public void setNameOutput(List<String> nameOutput) {
+        this.nameOutput = nameOutput;
+    }
+
+    public void setUserHashMap(HashMap<String, ArrayList<String>> userHashMap) {
+        this.userHashMap = userHashMap;
+    }
+
+    public HashMap<String, ArrayList<String>> getUserHashMap() {
+        return userHashMap;
+    }
+
+    public void print() {
+        System.out.println(nameOutput.size());
     }
 }

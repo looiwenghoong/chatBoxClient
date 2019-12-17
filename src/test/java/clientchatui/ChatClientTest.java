@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -72,7 +72,59 @@ public class ChatClientTest {
 
             assertTrue("Read Thread created", readThread instanceof ReadThread);
         }catch (Exception e) {
-            fail("Exception");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testUpdateHashMap () {
+        List<String> nameOutput = new ArrayList<>();
+        String connection = "Test Connection2";
+        nameOutput.add("Test User1");
+        nameOutput.add("Test User2");
+        List<String> connectionOutput = new ArrayList<>();
+        connectionOutput.add("Test Connection1");
+        connectionOutput.add("Test Connection2");
+        HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
+
+        try {
+            // Create custom server socket
+            ServerSocket serverSocket = new ServerSocket(1003);
+
+            URL fxmlURL = ClassLoader.getSystemResource("FXMLDocument.fxml");
+            FXMLLoader loader = new FXMLLoader(fxmlURL);
+            FXMLDocumentController controller = loader.getController();
+            ChatClient chatClient = new ChatClient("127.0.0.1", 1003);
+            Socket socket = chatClient.getSocket();
+            ReadThread readThread = new ReadThread(socket, chatClient, controller);
+
+            readThread.setNameOutput(nameOutput);
+            readThread.setConnectionOutput(connectionOutput);
+            readThread.setUserHashMap(userHashMap);
+            readThread.print();
+
+            readThread.updateHashMap();
+            HashMap<String, ArrayList<String>> userHashMapTest = readThread.getUserHashMap();
+
+            Set set = userHashMapTest.entrySet();
+            Iterator iterator = set.iterator();
+            while(iterator.hasNext()) {
+                Map.Entry mentry = (Map.Entry)iterator.next();
+                if(mentry.getKey().toString().matches("Test Connection2")) {
+                    if(userHashMapTest.get(connection).size() == 0) {
+                        assertTrue("Matching content in hashmap", true);
+                    } else {
+                        fail("Value Not Matching");
+                    }
+                } else {
+                    fail("Key Not Matching");
+                }
+//                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
+//                System.out.println(mentry.getValue());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
