@@ -16,17 +16,15 @@ public class ReadThread implements Runnable {
     private List<String> connectionOutput = new ArrayList<>();
     private String concatPattern = "%CoNcAt%";
     private HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
-    private ClientChatUI application;
     private String connectionID;
     private int selfIndex;
     private int numberOfUsers = 0;
     private FXMLDocumentController controller;
 
 
-    public ReadThread(Socket socket, ChatClient client, ClientChatUI application, FXMLDocumentController controller) {
+    public ReadThread(Socket socket, ChatClient client, FXMLDocumentController controller) {
         this.socket = socket;
         this.client = client;
-        this.application = application;
         this.controller = controller;
 
         try {

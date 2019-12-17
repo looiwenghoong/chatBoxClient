@@ -54,7 +54,7 @@ public class ClientChatUI extends Application {
 
         loginUsername = controller.getUsername();
         if(loginUsername != null) {
-            client = new ChatClient("127.0.0.1", 9000, loginUsername, this, controller);
+            client = new ChatClient("127.0.0.1", 9000, loginUsername, controller);
             controller.initClientInstance(client);
         }
     }

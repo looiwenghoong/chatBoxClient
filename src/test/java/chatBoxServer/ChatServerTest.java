@@ -16,7 +16,7 @@ public class ChatServerTest {
     // If any exception during server init then test case failed
     @Test
     public void initChatServer() {
-        int port = 9000;
+        int port = 9100;
         try{
             ChatServer server = new ChatServer(port);
         } catch (Exception e) {
