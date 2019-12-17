@@ -1,77 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chatBoxServer.ChatServerTest" tests="2" skipped="0" failures="1" errors="0" timestamp="2019-12-11T06:20:22" hostname="looiwenghoongs-MacBook-Pro.local" time="0.018">
+<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T11:05:57" hostname="looiwenghoongs-MacBook-Pro.local" time="0.011">
   <properties/>
-  <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.018">
-    <failure message="java.lang.AssertionError: Action of creating new server socket with same port is prohibited" type="java.lang.AssertionError">java.lang.AssertionError: Action of creating new server socket with same port is prohibited
-	at org.junit.Assert.fail(Assert.java:88)
-	at chatBoxServer.ChatServerTest.initChatServer(ChatServerTest.java:26)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
-	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
-	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:39)
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
-	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
-	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
-	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
-	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
-	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
-	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
-	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
-	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
-	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:79)
-	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:70)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:170)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:154)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:90)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:92)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$100(JUnitPlatformTestClassProcessor.java:77)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:73)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy1.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:123)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-</failure>
-  </testcase>
-  <testcase name="testGetNumberOfUsersSuccess" classname="chatBoxServer.ChatServerTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.001"/>
+  <system-out><![CDATA[Server has been initialised on port 9008
+Server has been initialised on port 9005
+chatBoxServer.Connection@5f91fdbcCreated
+chatBoxServer.Connection@5f91fdbc connected to the server
+Adding new Client to active client list
+Server has been initialised on port 9006
+Server has been initialised on port 9100
+Server has been initialised on port 9003
+Server has been initialised on port 9101
+chatBoxServer.Connection@6eca302dCreated
+chatBoxServer.Connection@6eca302d connected to the server
+Adding new Client to active client list
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

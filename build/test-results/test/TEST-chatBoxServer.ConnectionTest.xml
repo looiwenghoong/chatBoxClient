@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="chatBoxServer.ConnectionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-12-17T11:05:57" hostname="looiwenghoongs-MacBook-Pro.local" time="0.085">
+  <properties/>
+  <testcase name="testBroadcastConnectionIDToClient" classname="chatBoxServer.ConnectionTest" time="0.041"/>
+  <testcase name="testCreateConnectionInstance" classname="chatBoxServer.ConnectionTest" time="0.001"/>
+  <testcase name="testClientInfo" classname="chatBoxServer.ConnectionTest" time="0.036"/>
+  <testcase name="testGetNumberOfUsers" classname="chatBoxServer.ConnectionTest" time="0.002"/>
+  <testcase name="testGetClientUsername" classname="chatBoxServer.ConnectionTest" time="0.003"/>
+  <system-out><![CDATA[Server has been initialised on port 8002
+chatBoxServer.Connection@2fb5cea5Created
+chatBoxServer.Connection@2fb5cea5 connected to the server
+Adding new Client to active client list
+Server has been initialised on port 8000
+Server has been initialised on port 8007
+Client joined: user2
+Currently 0 users online.
+Name: user2 connectionid: chatBoxServer.Connection@307f7ad2
+USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2
+
+CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@307f7ad2
+
+Server has been initialised on port 8004
+chatBoxServer.Connection@6401a97bCreated
+chatBoxServer.Connection@6401a97b connected to the server
+Adding new Client to active client list
+Server has been initialised on port 8005
+Client joined: user1
+Currently 0 users online.
+Name: user2 connectionid: chatBoxServer.Connection@307f7ad2
+Name: user1 connectionid: chatBoxServer.Connection@4bccbdeb
+USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2%CoNcAt%user1
+
+CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@307f7ad2%CoNcAt%chatBoxServer.Connection@4bccbdeb
+
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

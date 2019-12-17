@@ -14,14 +14,17 @@ public class ChatServer {
     final static int port = 9000;
 
     private ServerSocket server;
-    public ArrayList<Connection> list;
+    public ArrayList<Connection> list = new ArrayList<>();
     private Socket s;
     private Connection c = null;
 
 
     public static void main(String args[]) {
         chatServer = new ChatServer(port);
-        chatServer.onServerRunning();
+        while(true) {
+            chatServer.onServerRunning();
+        }
+
     }
 
     public ChatServer (int port) {
@@ -29,20 +32,23 @@ public class ChatServer {
             server = new ServerSocket(port);
             System.out.println("Server has been initialised on port " + port);
         }
-        catch (Exception e) {
+        catch (NullPointerException e) {
             System.err.println("error initialising server");
+            throw e;
+        }
+        catch (IOException f) {
+            System.err.println("error initialising server");
+            throw new RuntimeException("IO Exception in the Application",f);
         }
     }
 
-    private void onServerRunning() {
-        list = new ArrayList<>();
-        while(true) {
-            try {
-                s = server.accept();
-                createConnection(s);
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+    public void onServerRunning() {
+
+        try {
+            s = server.accept();
+            createConnection(s);
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 
@@ -53,6 +59,7 @@ public class ChatServer {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
             c = new Connection(s, this, dis, dos);
+            System.out.println(c + "Created");
             addNewConnectionToList(c);
 
             Thread t = new Thread(c);
@@ -78,6 +85,7 @@ public class ChatServer {
         for(int i = 0; i< list.size(); i++) {
             clientThread = list.get(i);
             if(clientThread.toString().matches(selfClient) || clientThread.toString().matches(targetClient)) {
+                System.out.println("YEs");
                 clientThread.sendMessages(message);
             }
         }
@@ -97,5 +105,9 @@ public class ChatServer {
 
     public void removeConnection(Connection connectionID) {
         list.remove(connectionID);
+    }
+
+    public ArrayList<Connection> getConnectionList() {
+        return list;
     }
 }

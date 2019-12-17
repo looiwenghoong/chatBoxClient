@@ -16,17 +16,15 @@ public class ReadThread implements Runnable {
     private List<String> connectionOutput = new ArrayList<>();
     private String concatPattern = "%CoNcAt%";
     private HashMap<String, ArrayList<String>> userHashMap = new HashMap<>();
-    private ClientChatUI application;
     private String connectionID;
     private int selfIndex;
     private int numberOfUsers = 0;
     private FXMLDocumentController controller;
 
 
-    public ReadThread(Socket socket, ChatClient client, ClientChatUI application, FXMLDocumentController controller) {
+    public ReadThread(Socket socket, ChatClient client, FXMLDocumentController controller) {
         this.socket = socket;
         this.client = client;
-        this.application = application;
         this.controller = controller;
 
         try {
@@ -47,7 +45,6 @@ public class ReadThread implements Runnable {
                         String[] removeHeader = response.split("(USERNAMElist:)");
                         nameOutput = Arrays.asList(removeHeader[1].split(concatPattern));
                     } else if(response.startsWith("CONNECTIONid:")) {
-//                        System.out.println(response);
                         String[] removeHeader = response.split("(CONNECTIONid:)");
                         connectionID = removeHeader[1];
                     } else {
@@ -65,8 +62,10 @@ public class ReadThread implements Runnable {
                         }
 
                         updateHashMap();
-                        controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
-                        controller.setMsgHashMap(userHashMap);
+                        if(controller != null) {
+                            controller.generateUsernameList(nameOutput, connectionOutput, selfIndex, numberOfUsers);
+                            controller.setMsgHashMap(userHashMap);
+                        }
                     }
                 } else {
                     decodeMessage(response);
@@ -126,24 +125,10 @@ public class ReadThread implements Runnable {
 
     public void decodeMessage(String response) {
         String msgHeader;
-        String msgBody;
         String targetClient;
         String selfClient;
         ArrayList<String> msgList;
         if(response.startsWith("grp->MSGheaderFromCLIENT:")){
-            String[] removeHeader = response.split("(grp->MSGheaderFromCLIENT:)");
-            removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
-            msgHeader = removeHeader[0];
-            msgBody = removeHeader[1];
-
-            removeHeader = msgHeader.split("(==>)");
-            selfClient = removeHeader[0];
-            targetClient = removeHeader[1];
-
-            msgList = userHashMap.get(targetClient);
-            msgList.add(response);
-            userHashMap.put(targetClient, msgList);
-
 //            Set set = userHashMap.entrySet();
 //            Iterator iterator = set.iterator();
 //            while(iterator.hasNext()) {
@@ -151,12 +136,25 @@ public class ReadThread implements Runnable {
 //                System.out.print("key is: "+ mentry.getKey() + " & Value is: ");
 //                System.out.println(mentry.getValue());
 //            }
-            controller.setMsgHashMap(userHashMap);
+
+            String[] removeHeader = response.split("(grp->MSGheaderFromCLIENT:)");
+            removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
+            msgHeader = removeHeader[0];
+
+            removeHeader = msgHeader.split("(==>)");
+            targetClient = removeHeader[1];
+
+            msgList = userHashMap.get(targetClient);
+            msgList.add(response);
+            userHashMap.put(targetClient, msgList);
+
+            if(controller != null) {
+                controller.setMsgHashMap(userHashMap);
+            }
         } else if(response.startsWith("pm->MSGheaderFromCLIENT:")) {
             String[] removeHeader = response.split("(pm->MSGheaderFromCLIENT:)");
             removeHeader =  removeHeader[1].split("(MSGbodyFromCLIENT:)");
             msgHeader = removeHeader[0];
-            msgBody = removeHeader[1];
 
             removeHeader = msgHeader.split("(==>)");
             selfClient = removeHeader[0];
@@ -171,7 +169,34 @@ public class ReadThread implements Runnable {
                 msgList.add(response);
                 userHashMap.put(targetClient, msgList);
             }
-            controller.setMsgHashMap(userHashMap);
+
+            if(controller != null) {
+                controller.setMsgHashMap(userHashMap);
+            }
         }
+    }
+
+    public void setConnectionOutput(List<String> connectionOutput) {
+        this.connectionOutput = connectionOutput;
+    }
+
+    public void setNameOutput(List<String> nameOutput) {
+        this.nameOutput = nameOutput;
+    }
+
+    public void setUserHashMap(HashMap<String, ArrayList<String>> userHashMap) {
+        this.userHashMap = userHashMap;
+    }
+
+    public HashMap<String, ArrayList<String>> getUserHashMap() {
+        return userHashMap;
+    }
+
+    public void setConnectionID(String connectionID) {
+        this.connectionID = connectionID;
+    }
+
+    public void print() {
+        System.out.println(nameOutput.size());
     }
 }
