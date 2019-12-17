@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chatBoxServer.ConnectionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:17:24" hostname="looiwenghoongs-MacBook-Pro.local" time="0.09">
+<testsuite name="chatBoxServer.ConnectionTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:28:18" hostname="looiwenghoongs-MacBook-Pro.local" time="0.094">
   <properties/>
-  <testcase name="testBroadcastConnectionIDToClient" classname="chatBoxServer.ConnectionTest" time="0.043"/>
+  <testcase name="testBroadcastConnectionIDToClient" classname="chatBoxServer.ConnectionTest" time="0.042"/>
   <testcase name="testCreateConnectionInstance" classname="chatBoxServer.ConnectionTest" time="0.002"/>
-  <testcase name="testClientInfo" classname="chatBoxServer.ConnectionTest" time="0.037"/>
+  <testcase name="testClientInfo" classname="chatBoxServer.ConnectionTest" time="0.036"/>
   <testcase name="testGetNumberOfUsers" classname="chatBoxServer.ConnectionTest" time="0.003"/>
-  <testcase name="testGetClientUsername" classname="chatBoxServer.ConnectionTest" time="0.003"/>
+  <testcase name="testGetClientUsername" classname="chatBoxServer.ConnectionTest" time="0.01"/>
   <system-out><![CDATA[Server has been initialised on port 8002
-chatBoxServer.Connection@3d53808Created
-chatBoxServer.Connection@3d53808 connected to the server
+chatBoxServer.Connection@82be2f1Created
+chatBoxServer.Connection@82be2f1 connected to the server
 Adding new Client to active client list
 Server has been initialised on port 8000
 Server has been initialised on port 8007
 Client joined: user2
 Currently 0 users online.
-Name: user2 connectionid: chatBoxServer.Connection@199149dc
+Name: user2 connectionid: chatBoxServer.Connection@71af2d25
 USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2
 
-CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@199149dc
+CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@71af2d25
 
 Server has been initialised on port 8004
-chatBoxServer.Connection@507f08c9Created
-chatBoxServer.Connection@507f08c9 connected to the server
+chatBoxServer.Connection@240db5fCreated
+chatBoxServer.Connection@240db5f connected to the server
 Adding new Client to active client list
 Server has been initialised on port 8005
 Client joined: user1
 Currently 0 users online.
-Name: user2 connectionid: chatBoxServer.Connection@199149dc
-Name: user1 connectionid: chatBoxServer.Connection@31bf1062
+Name: user2 connectionid: chatBoxServer.Connection@71af2d25
+Name: user1 connectionid: chatBoxServer.Connection@740225e
 USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2%CoNcAt%user1
 
-CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@199149dc%CoNcAt%chatBoxServer.Connection@31bf1062
+CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@71af2d25%CoNcAt%chatBoxServer.Connection@740225e
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

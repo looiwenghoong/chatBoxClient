@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:17:24" hostname="looiwenghoongs-MacBook-Pro.local" time="0.014">
+<testsuite name="chatBoxServer.ChatServerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:28:18" hostname="looiwenghoongs-MacBook-Pro.local" time="0.019">
   <properties/>
-  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.002"/>
-  <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.003"/>
+  <testcase name="testRemoveConnectionListSequence" classname="chatBoxServer.ChatServerTest" time="0.003"/>
+  <testcase name="testGetConnectionID" classname="chatBoxServer.ChatServerTest" time="0.003"/>
+  <testcase name="testRemoveConnection" classname="chatBoxServer.ChatServerTest" time="0.002"/>
   <testcase name="initChatServer" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.001"/>
-  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.002"/>
+  <testcase name="testAddNewConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.004"/>
+  <testcase name="testCreateConnectionSuccess" classname="chatBoxServer.ChatServerTest" time="0.004"/>
   <system-out><![CDATA[Server has been initialised on port 9008
+java.net.SocketException: Connection reset
+java.net.SocketException: Connection reset
 Server has been initialised on port 9005
-chatBoxServer.Connection@1555673Created
-chatBoxServer.Connection@1555673 connected to the server
+chatBoxServer.Connection@7d4188b8Created
+chatBoxServer.Connection@7d4188b8 connected to the server
 Adding new Client to active client list
 Server has been initialised on port 9006
 Server has been initialised on port 9100
 Server has been initialised on port 9003
+Client left: null
+[Ljava.lang.String;@57e5c1
+Client left: null
+[Ljava.lang.String;@47e388c9
 Server has been initialised on port 9101
-chatBoxServer.Connection@76ddcbeaCreated
-chatBoxServer.Connection@76ddcbea connected to the server
+chatBoxServer.Connection@238c5bc7Created
+chatBoxServer.Connection@238c5bc7 connected to the server
 Adding new Client to active client list
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

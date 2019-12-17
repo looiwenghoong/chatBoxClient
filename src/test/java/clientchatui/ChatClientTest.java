@@ -43,18 +43,6 @@ public class ChatClientTest {
             FXMLLoader loader = new FXMLLoader(fxmlURL);
             FXMLDocumentController controller = loader.getController();
             ChatClient chatClient = new ChatClient("127.0.0.1", 1001, "User1", controller);
-
-//            Socket s = serverSocket.accept();
-//            ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
-//            try {
-//                Object obj = ois.readObject();
-//                clientName = (ArrayList<String>) obj;
-//                String username = clientName.get(0);
-//                assertTrue("Matching output", username.matches("User1"));
-//            } catch (IOException e) {
-//                fail("IO Exception");
-//            }
-
         } catch (Exception e) {
             fail("Unable to create Connection");
         }

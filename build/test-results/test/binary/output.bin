@@ -1,53 +1,47 @@
 )Server has been initialised on port 8002
-(chatBoxServer.Connection@3d53808Created
-9chatBoxServer.Connection@3d53808 connected to the server
+(chatBoxServer.Connection@82be2f1Created
+9chatBoxServer.Connection@82be2f1 connected to the server
 (Adding new Client to active client list
 )Server has been initialised on port 8000
 )Server has been initialised on port 8007
 Client joined: user2
 Currently 0 users online.
-<Name: user2 connectionid: chatBoxServer.Connection@199149dc
+<Name: user2 connectionid: chatBoxServer.Connection@71af2d25
 -USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2
 
-bCONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@199149dc
+bCONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@71af2d25
 
 )Server has been initialised on port 8004
-)chatBoxServer.Connection@507f08c9Created
-:chatBoxServer.Connection@507f08c9 connected to the server
+(chatBoxServer.Connection@240db5fCreated
+9chatBoxServer.Connection@240db5f connected to the server
 (Adding new Client to active client list
 )Server has been initialised on port 8005
 Client joined: user1
 Currently 0 users online.
-<Name: user2 connectionid: chatBoxServer.Connection@199149dc
-<Name: user1 connectionid: chatBoxServer.Connection@31bf1062
+<Name: user2 connectionid: chatBoxServer.Connection@71af2d25
+;Name: user1 connectionid: chatBoxServer.Connection@740225e
 :USERNAMElist:%CoNcAt%Group Chat%CoNcAt%user2%CoNcAt%user1
 
-‹CONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@199149dc%CoNcAt%chatBoxServer.Connection@31bf1062
+ŠCONNECTIONlist:%CoNcAt%chatBoxServer.Connection@1a24k3c0%CoNcAt%chatBoxServer.Connection@71af2d25%CoNcAt%chatBoxServer.Connection@740225e
 
 )Server has been initialised on port 9008
++java.net.SocketException: Connection reset
++java.net.SocketException: Connection reset
 	)Server has been initialised on port 9005
-	(chatBoxServer.Connection@1555673Created
-	9chatBoxServer.Connection@1555673 connected to the server
+	)chatBoxServer.Connection@7d4188b8Created
+	:chatBoxServer.Connection@7d4188b8 connected to the server
 	(Adding new Client to active client list
 
 )Server has been initialised on port 9006
 )Server has been initialised on port 9100
 )Server has been initialised on port 9003
+Client left: null
+[Ljava.lang.String;@57e5c1
+Client left: null
+[Ljava.lang.String;@47e388c9
 )Server has been initialised on port 9101
-)chatBoxServer.Connection@76ddcbeaCreated
-:chatBoxServer.Connection@76ddcbea connected to the server
+)chatBoxServer.Connection@238c5bc7Created
+:chatBoxServer.Connection@238c5bc7 connected to the server
 (Adding new Client to active client list
-+java.net.SocketException: Connection reset
-+java.net.SocketException: Connection reset
-+java.net.SocketException: Connection reset
-Client left: null
-Client left: null
-Client left: null
-[Ljava.lang.String;@30f62434
-[Ljava.lang.String;@23375c86
-[Ljava.lang.String;@26a7ba3f
-+java.net.SocketException: Connection reset
-Client left: null
-[Ljava.lang.String;@3540f28a
 !Connected to server at port 1001
-Unable to connect to server
+Unable to connect to server
