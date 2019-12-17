@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="clientchatui.ChatClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:04:30" hostname="looiwenghoongs-MacBook-Pro.local" time="0.029">
+<testsuite name="clientchatui.ChatClientTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2019-12-17T05:12:32" hostname="looiwenghoongs-MacBook-Pro.local" time="0.031">
   <properties/>
-  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.027"/>
-  <testcase name="testInitChatClient" classname="clientchatui.ChatClientTest" time="0.001"/>
+  <testcase name="testWriteUsernameToServer" classname="clientchatui.ChatClientTest" time="0.029"/>
+  <testcase name="testInitChatClient" classname="clientchatui.ChatClientTest" time="0.002"/>
   <system-out><![CDATA[Connected to server at port 1001
 Unable to connect to server
 ]]></system-out>
